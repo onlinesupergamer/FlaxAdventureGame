@@ -49,6 +49,10 @@ void PlayerCharacter::OnDisable()
 
 void PlayerCharacter::OnUpdate()
 {
+    /*
+        This should be moved into its own function
+    */
+
     if (Input::GetAction(TEXT("StartAim")))
     {
         bIsAiming = true;
@@ -82,6 +86,7 @@ void PlayerCharacter::MoveCharacter()
         DebugLog::Log(LogType::Error, TEXT("Character Controller Or Character Camera Is Missing"));
         return;
     }
+
     Vector3 MoveVector;
     
     //We have to do a type conversion because the compiler is retarded
