@@ -21,6 +21,8 @@
 #include "Engine/Level/Actors/Camera.h"
 #include "Engine/Engine/Screen.h"
 #include "Engine/Engine/Time.h"
+#include "Engine/Physics/Physics.h"
+#include "Engine/Debug/DebugDraw.h"
 
 
 PlayerCharacter::PlayerCharacter(const SpawnParams& params)
@@ -49,25 +51,10 @@ void PlayerCharacter::OnDisable()
 
 void PlayerCharacter::OnUpdate()
 {
-    /*
-        This should be moved into its own function
-    */
-
-    if (Input::GetAction(TEXT("StartAim")))
-    {
-        bIsAiming = true;
-        _CharacterCamera->bIsAiming = true;
-        _CharacterCamera->StartAim();
-    }
-    else if (Input::GetAction(TEXT("StopAim"))) 
-    {
-        bIsAiming = false;
-        _CharacterCamera->bIsAiming = false;
-        _CharacterCamera->StopAim();
-    }
-
+    AimCheck();
     MoveCharacter();
     Gravity();
+    AttackCheck();
     
 
     bIsGrounded = _CharacterController->IsGrounded();
@@ -94,8 +81,8 @@ void PlayerCharacter::MoveCharacter()
     Transform CameraTransform = _Camera->GetActor()->GetTransform();
     Vector3 CamForward = CameraTransform.GetForward();
     Vector3 CamRight = CameraTransform.GetRight();
-    CamRight.Y = (float)0;
-    CamForward.Y = (float)0;
+    CamRight.Y = 0;
+    CamForward.Y = 0;
     CamForward.Normalize();
     CamRight.Normalize();
     Vector3 NewForwardVec = (float)PLAYER_VERTICAL_INPUT * CamForward;
@@ -122,27 +109,39 @@ void PlayerCharacter::MoveCharacter()
     if (bIsAiming) 
     {
         Rot = Quaternion::Lerp(GetActor()->GetOrientation(), _Camera->GetActor()->GetOrientation(), RotFactor);
-        Quaternion AdjustedRot = Rot.Euler((float)0, Rot.GetEuler().Y, (float)0);
+        Quaternion AdjustedRot = Rot.Euler(0, Rot.GetEuler().Y, 0);
         GetActor()->SetOrientation(AdjustedRot);
     }
 }
 
 void PlayerCharacter::CameraHandler()
 {
+    /*
+      ////////////////////////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////////////////////////
+
+        This should probably be placed into PlayerCamera.cpp, since this 
+        is directly camera related
+
+      ////////////////////////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////////////////////////
+    */
+
     if (!_CharacterCamera)
     {
         DebugLog::Log(LogType::Error, TEXT("Main Camera Is Missing"));
         return;
     }
 
-
     PlayerCamera* _Camera = static_cast<ScriptingObjectReference<PlayerCamera>>(_CharacterCamera);
+    float PlayerVerticalOffset = 30.0f;
     Transform Target = GetActor()->GetPosition();
+    Target.Translation.Y = Target.Translation.Y + PlayerVerticalOffset;
     Quaternion TargetRotation;
     xRotation = Math::Clamp(xRotation + PLAYER_ROTATION_INPUT_V, (float)-180, (float)250);
     yRotation += PLAYER_ROTATION_INPUT_H;
-    TargetRotation = Quaternion::Euler(xRotation * CameraLookSpeed, yRotation * CameraLookSpeed, (float)0);
-    _Camera->GetActor()->SetPosition(Target.Translation - TargetRotation * _Camera->Offset + Vector3(0, 1, 0) * _Camera->Height);
+    TargetRotation = Quaternion::Euler(xRotation * CameraLookSpeed, yRotation * CameraLookSpeed, 0);
+    _Camera->GetActor()->SetPosition(Target.Translation - TargetRotation * _Camera->Offset + Vector3(0, 1, 0));
     _Camera->GetActor()->SetOrientation(TargetRotation);
 }
 
@@ -150,6 +149,64 @@ void PlayerCharacter::Gravity()
 {
     Vector3 GravityVector(0, GravityValue, 0);
     _CharacterController->Move(GravityVector);
+}
+
+void PlayerCharacter::AimCheck() 
+{
+    /*
+        May be possible to simplify this with the AttackCheck function
+        To clean this up
+    */
+    
+    if (Input::GetAction(TEXT("StartAim")))
+    {
+        bIsAiming = true;
+        _CharacterCamera->bIsAiming = true;
+        _CharacterCamera->StartAim();
+    }
+    else if (Input::GetAction(TEXT("StopAim")))
+    {
+        bIsAiming = false;
+        _CharacterCamera->bIsAiming = false;
+        _CharacterCamera->StopAim();
+    }
+
+}
+
+void PlayerCharacter::AttackCheck() 
+{
+    if (bIsAiming && Input::GetAction(TEXT("StartFire")))
+    {
+        FireWeapon();
+    }
+    if (!bIsAiming && Input::GetAction(TEXT("StartFire")))
+    {
+        SwordAttack();
+    }
+}
+
+void PlayerCharacter::FireWeapon() 
+{
+    DebugLog::Log(LogType::Info, TEXT("Fire Gun"));
+    RayCastHit Hit;
+    if (Physics::RayCast(_CharacterCamera->GetActor()->GetPosition(), _CharacterCamera->GetActor()->GetDirection(), Hit, WeaponDistance, RayLayers))
+    {
+        DEBUG_DRAW_SPHERE(BoundingSphere(Hit.Point, 10), Color::Red, 10.0f, true);
+    }
+}
+
+void PlayerCharacter::SwordAttack() 
+{
+    DebugLog::Log(LogType::Info, TEXT("Attack With Sword"));
+    RayCastHit Hit;
+    float AttackOffset = 100.0f;
+    float HitSize = 80.0f;
+    Vector3 Position = GetActor()->GetPosition() + GetActor()->GetDirection() * AttackOffset;
+    if (Physics::SphereCast(Position, HitSize, GetActor()->GetDirection(), SwordDistance, RayLayers)) 
+    {
+
+    }
+    DEBUG_DRAW_SPHERE(BoundingSphere(Position, HitSize), Color::Blue, 10.0f, true);
 }
 
 float PlayerCharacter::GetDT() 

@@ -19,13 +19,13 @@
 #include "Engine/Debug/DebugLog.h"
 #include "Engine/Engine/Time.h"
 
+
+
 PlayerCamera::PlayerCamera(const SpawnParams& params)
     : Script(params)
 {
     // Enable ticking OnUpdate function
     _tickUpdate = true;
-    Offset = Vector3(0, 0, 230.0f);
-    Height = 65.0f;
     bIsAiming = false;
 }
 
@@ -43,31 +43,30 @@ void PlayerCamera::OnUpdate()
 {
     if (bIsAiming) 
     {
-        float z = Math::Lerp(Offset.Z, 170.0f, Math::Saturate(Time::GetDeltaTime() * 10.0f));
-        float x = Math::Lerp(Offset.X, -50.0f, Math::Saturate(Time::GetDeltaTime() * 10.0f));
-        float h = Math::Lerp(Height, 55.0f, Math::Saturate(Time::GetDeltaTime()) * 10.0f);
-        Offset = Vector3(x, 0, z);
-        Height = h;
+        float z = Math::Lerp(Offset.Z, AimDistance, Math::Saturate(Time::GetDeltaTime() * 10.0f));
+        float x = Math::Lerp(Offset.X, AimOffset, Math::Saturate(Time::GetDeltaTime() * 10.0f));
+        float h = Math::Lerp(Offset.Y, AimHeight, Math::Saturate(Time::GetDeltaTime() * 10.0f));
+        Offset = Vector3(x, h, z);
     }
     else
     {   
-        float z = Math::Lerp(Offset.Z, 230.0f, Math::Saturate(Time::GetDeltaTime() * 10.0f));
+        float z = Math::Lerp(Offset.Z, Distance, Math::Saturate(Time::GetDeltaTime() * 10.0f));
         float x = Math::Lerp(Offset.X, 0.0f, Math::Saturate(Time::GetDeltaTime() * 10.0f));
-        float h = Math::Lerp(Height, 65.0f, Math::Saturate(Time::GetDeltaTime()) * 10.0f);
-        Offset = Vector3(x, 0, z);
-        Height = h;
+        float h = Math::Lerp(Offset.Y, Height, Math::Saturate(Time::GetDeltaTime() * 10.0f));
+        Offset = Vector3(x, h, z);
     }
 
 }
 
 void PlayerCamera::StartAim() 
 {
-    DebugLog::Log(LogType::Info, TEXT("Starting Aim"));
+
 
 }
 
 void PlayerCamera::StopAim() 
 {
-    DebugLog::Log(LogType::Info, TEXT("Stopping Aim"));
+
 
 }
+

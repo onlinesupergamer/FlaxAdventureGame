@@ -32,11 +32,17 @@ DECLARE_SCRIPTING_TYPE(PlayerCamera);
     void OnUpdate() override;
 
 public:
-    API_FIELD() Vector3 Offset;
-    float Height;
+    API_FIELD() float Height = -75;
+    API_FIELD() float Distance = 400;
+    API_FIELD() float AimHeight = -50;
+    API_FIELD() float AimDistance = 200;
+    API_FIELD() float AimOffset = -125;
+
+    Vector3 Offset;
+    bool bIsAiming;
     void StartAim();
     void StopAim();
-    bool bIsAiming;
+
 
     API_FIELD() ScriptingObjectReference<Camera> _CharacterCamera;
 

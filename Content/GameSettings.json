@@ -1,13 +1,13 @@
 {
 	"ID": "9eba3d2a4cee4c099117f49c5dffc171",
 	"TypeName": "FlaxEditor.Content.Settings.GameSettings",
-	"EngineBuild": 6401,
+	"EngineBuild": 6605,
 	"Data": {
 	"ProductName": "My Game",
 	"CompanyName": "My Company",
 	"CopyrightNotice": null,
 	"Icon": null,
-	"FirstScene": "74a68a984824b4510d12589f199ad68f",
+	"FirstScene": "7a533f4c487fc96c9b7b2190c6fd183e",
 	"NoSplashScreen": false,
 	"SplashScreen": null,
 	"Time": "9acd18b0496064d35799f390d3a2b374",

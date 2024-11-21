@@ -21,6 +21,7 @@
 #include <Engine/Scripting/ScriptingObjectReference.h>
 #include <Engine/Level/Actor.h>
 #include "Engine/Physics/Colliders/CharacterController.h"
+#include "Engine/Core/Types/LayersMask.h"
 #include "PlayerCamera.h"
 
 
@@ -31,6 +32,8 @@
 #define PLAYER_ROTATION_INPUT_V Input::GetAxisRaw(TEXT("Mouse Y"))
 #define PLAYER_AIM_START Input::GetAction(TEXT("StartAim"));
 #define PLAYER_AIM_STOP Input::GetAction(TEXT("StopAim"));
+#define PLAYER_FIRE_START Input::GetAction(TEXT("StartFire"));
+#define PLAYER_FIRE_STOP Input::GetAction(TEXT("StopFire"));
 
 
 
@@ -52,8 +55,10 @@ public:
     API_FIELD() float CharacterMoveSpeed;
     API_FIELD() float GravityValue;
     API_FIELD() bool bIsGrounded;
-    API_FIELD() float timer = 0.0f;
     API_FIELD() bool bIsAiming;
+    API_FIELD() float WeaponDistance;
+    API_FIELD() float SwordDistance;
+    API_FIELD() LayersMask RayLayers;
 
 
 private:
@@ -61,6 +66,10 @@ private:
     void MoveCharacter();
     void CameraHandler();
     void Gravity();
+    void FireWeapon();
+    void SwordAttack();
+    void AimCheck();
+    void AttackCheck();
     float GetDT();              //Should be set in a Utility file
     float LerpC(float l1, float l2, float LerpSpeed);
 
@@ -68,6 +77,4 @@ private:
     float xRotation = 0.0f;
     float CameraLookSpeed = 0.2f;
     
-
-
 };

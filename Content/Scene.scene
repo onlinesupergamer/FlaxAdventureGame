@@ -140,83 +140,43 @@
 		},
 		{
 			"ID": "e924a7984f49779802fc73978331887a",
-			"TypeName": "FlaxEngine.CharacterController",
+			"PrefabID": "eff2dabc4fb21cc4b754578090be0116",
+			"PrefabObjectID": "950481d243dbbe8a87af69aaccc23b3b",
 			"ParentID": "74a68a984824b4510d12589f199ad68f",
-			"Name": "CharacterController",
 			"Transform": {
 				"Translation": {
 					"X": 102.74715423583985,
 					"Y": 159.34622192382813,
 					"Z": 73.83978271484375
 				}
-			},
-			"Radius": 26.0,
-			"Height": 50.0
+			}
 		},
 		{
 			"ID": "9891750144abc1a2c806689b8942f2b6",
-			"TypeName": "Game.PlayerCharacter",
+			"PrefabID": "eff2dabc4fb21cc4b754578090be0116",
+			"PrefabObjectID": "3022ac13458becfe48ba698b9277af2e",
 			"ParentID": "e924a7984f49779802fc73978331887a",
-			"_CharacterCamera": "c68b64e64bcc3e651102a4871ee15b64",
-			"_CharacterController": "e924a7984f49779802fc73978331887a",
-			"bIsGrounded": true
+			"_CharacterController": "e924a7984f49779802fc73978331887a"
 		},
 		{
 			"ID": "7ef3a0784f93463a0e54d6a4ebf82930",
-			"TypeName": "FlaxEngine.StaticModel",
+			"PrefabID": "eff2dabc4fb21cc4b754578090be0116",
+			"PrefabObjectID": "e0fcfa564c5c33a3579ce7827e1cd138",
 			"ParentID": "e924a7984f49779802fc73978331887a",
-			"Name": "StaticModel",
-			"Transform": {
-				"Translation": {
-					"X": 0.0,
-					"Y": -50.0,
-					"Z": 0.0
-				}
-			},
-			"Model": "3f82e57744f57c28285150b646ad2198",
 			"Buffer": {
 				"Entries": [
-					{
-						"Material": "00000000000000000000000000000000",
-						"ShadowsMode": 3,
-						"Visible": true,
-						"ReceiveDecals": true
-					}
+					{}
 				]
 			}
 		},
 		{
 			"ID": "87ba36604fdbb5f1f5cae8b02b9576a9",
-			"TypeName": "FlaxEngine.StaticModel",
+			"PrefabID": "eff2dabc4fb21cc4b754578090be0116",
+			"PrefabObjectID": "845408a54731fe66ba207a924da546bc",
 			"ParentID": "7ef3a0784f93463a0e54d6a4ebf82930",
-			"Name": "StaticModel",
-			"Transform": {
-				"Translation": {
-					"X": 0.0,
-					"Y": 78.47250366210938,
-					"Z": 13.944908142089844
-				},
-				"Orientation": {
-					"X": 0.0,
-					"Y": 0.7071065902709961,
-					"Z": 0.0,
-					"W": -0.7071069478988648
-				},
-				"Scale": {
-					"X": 0.1900225579738617,
-					"Y": 0.1628132164478302,
-					"Z": 0.44511714577674868
-				}
-			},
-			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
 			"Buffer": {
 				"Entries": [
-					{
-						"Material": "00000000000000000000000000000000",
-						"ShadowsMode": 3,
-						"Visible": true,
-						"ReceiveDecals": true
-					}
+					{}
 				]
 			}
 		}

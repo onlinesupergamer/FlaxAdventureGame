@@ -2,9 +2,9 @@
   "profiles": {
     "Game": {
       "commandName": "Executable",
-      "workingDirectory": "C:/Users/AntMan/Documents/GitHub/FlaxAdventureGame",
+      "workingDirectory": "C:/Users/Benny/Documents/GitHub/FlaxAdventureGame",
       "executablePath": "C:/Program Files (x86)/Flax/Flax_1.9/Binaries/Editor/Win64/Development/FlaxEditor.exe",
-      "commandLineArgs": "-project \"C:/Users/AntMan/Documents/GitHub/FlaxAdventureGame\"",
+      "commandLineArgs": "-project \"C:/Users/Benny/Documents/GitHub/FlaxAdventureGame\"",
       "nativeDebugging": false
     }
   }
