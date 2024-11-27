@@ -42,6 +42,16 @@ void PlayerCharacter::OnEnable()
 {
     Screen::SetCursorLock(CursorLockMode::Locked);
     Screen::SetCursorVisible(false);
+
+    IInterface* i;
+    i = ToInterface<IInterface>(this);
+
+    if (i) 
+    {
+        DebugLog::Log(LogType::Info, TEXT("99999999999999999999999999"));
+
+    }
+
 }
 
 void PlayerCharacter::OnDisable()
@@ -55,9 +65,10 @@ void PlayerCharacter::OnUpdate()
     MoveCharacter();
     Gravity();
     AttackCheck();
-    
 
     bIsGrounded = _CharacterController->IsGrounded();
+
+  
 }
 
 void PlayerCharacter::OnLateUpdate() 
@@ -187,26 +198,45 @@ void PlayerCharacter::AttackCheck()
 
 void PlayerCharacter::FireWeapon() 
 {
+
     DebugLog::Log(LogType::Info, TEXT("Fire Gun"));
     RayCastHit Hit;
     if (Physics::RayCast(_CharacterCamera->GetActor()->GetPosition(), _CharacterCamera->GetActor()->GetDirection(), Hit, WeaponDistance, RayLayers))
     {
         DEBUG_DRAW_SPHERE(BoundingSphere(Hit.Point, 10), Color::Red, 10.0f, true);
+
+        
     }
 }
 
 void PlayerCharacter::SwordAttack() 
 {
+    /*
+        Simple way of doing damage, but there are possible issues 
+        with being able to do damage through walls
+
+        Might be possible to check line of sight with a raycast for each object that
+        was hit to see if it's blocked by a wall and if so, don't do damage to that entity
+    */
+        ////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////
+
     DebugLog::Log(LogType::Info, TEXT("Attack With Sword"));
     RayCastHit Hit;
     float AttackOffset = 100.0f;
     float HitSize = 80.0f;
     Vector3 Position = GetActor()->GetPosition() + GetActor()->GetDirection() * AttackOffset;
-    if (Physics::SphereCast(Position, HitSize, GetActor()->GetDirection(), SwordDistance, RayLayers)) 
+    if (Physics::SphereCast(Position, HitSize, GetActor()->GetDirection(), SwordDistance, RayLayers)) //Bitwise Operation?
     {
+        DebugLog::Log(LogType::Info, TEXT("Hit"));
 
+        //DebugLog::Log(LogType::Info, Hit.Collider->GetName());
+
+        
     }
     DEBUG_DRAW_SPHERE(BoundingSphere(Position, HitSize), Color::Blue, 10.0f, true);
+
+    //Update this to check for ALL entities that have been hit
 }
 
 float PlayerCharacter::GetDT() 

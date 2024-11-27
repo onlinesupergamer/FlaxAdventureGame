@@ -22,6 +22,7 @@
 #include <Engine/Level/Actor.h>
 #include "Engine/Physics/Colliders/CharacterController.h"
 #include "Engine/Core/Types/LayersMask.h"
+#include "../Gameplay/IInterface.h"
 #include "PlayerCamera.h"
 
 

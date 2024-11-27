@@ -125,46 +125,97 @@
 			"CustomTexture": "c54410104ff39427bc11e5bc761d66b0"
 		},
 		{
-			"ID": "052ad6934cc6ee50ab8b7dbbdf8cf91d",
+			"ID": "d88da61e4cb3f5d4ae3f77b2fb187d4f",
+			"TypeName": "FlaxEngine.EmptyActor",
+			"ParentID": "7a533f4c487fc96c9b7b2190c6fd183e",
+			"Name": "MusicController"
+		},
+		{
+			"ID": "7fdd5ac6473f678208592f8e376b3ed5",
+			"TypeName": "FlaxEngine.AudioSource",
+			"ParentID": "d88da61e4cb3f5d4ae3f77b2fb187d4f",
+			"Name": "AudioSource",
+			"Loop": true,
+			"AllowSpatialization": false
+		},
+		{
+			"ID": "505befa44029b4fe1cf153999ae557a4",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "7a533f4c487fc96c9b7b2190c6fd183e",
+			"Name": "StaticModel",
+			"Transform": {
+				"Translation": {
+					"X": 2176.63427734375,
+					"Y": 196.3992919921875,
+					"Z": -276.5281677246094
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": 1.0,
+					"Z": 0.0,
+					"W": -1.4901161193847657e-7
+				},
+				"Scale": {
+					"X": 2.0,
+					"Y": 2.0,
+					"Z": 2.0
+				}
+			},
+			"Model": "1b4a643d44706750b2e35ea4e11e3663",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "00000000000000000000000000000000",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "550489bc423f822fa33520859ff3bc4c",
+			"TypeName": "Game.InterfaceTest",
+			"ParentID": "505befa44029b4fe1cf153999ae557a4"
+		},
+		{
+			"ID": "b268a43d4424e4f5b8a8e290f0cfd3de",
+			"TypeName": "FlaxEngine.MeshCollider",
+			"ParentID": "505befa44029b4fe1cf153999ae557a4",
+			"Name": "MeshCollider",
+			"CollisionData": "a1840c874fa8f16c4f6705be2b19618b"
+		},
+		{
+			"ID": "eec068e4422f755076e03fa9faaa89fa",
 			"PrefabID": "19b753284e941e0a0e72da9d55e8bfae",
 			"PrefabObjectID": "5e9a737d454e22940e54f081c54f6d22",
 			"ParentID": "7a533f4c487fc96c9b7b2190c6fd183e",
 			"Transform": {
 				"Translation": {
-					"X": 2598.95703125,
-					"Y": 137.3596954345703,
-					"Z": -259.6905822753906
-				},
-				"Orientation": {
-					"X": 0.0,
-					"Y": 0.3826834559440613,
-					"Z": 0.0,
-					"W": 0.9238795042037964
+					"X": 2620.76708984375,
+					"Y": 130.76553344726563,
+					"Z": -284.80828857421877
 				}
-			},
-			"Layer": 1,
-			"Tag": "Player"
+			}
 		},
 		{
-			"ID": "0f46c87f48e63b8667548c9d98a226d9",
+			"ID": "4ab74c654dfd18052a45caaab48c35f1",
 			"PrefabID": "19b753284e941e0a0e72da9d55e8bfae",
 			"PrefabObjectID": "970c9c6841012fbe58839b836cbc21b0",
-			"ParentID": "052ad6934cc6ee50ab8b7dbbdf8cf91d",
+			"ParentID": "eec068e4422f755076e03fa9faaa89fa",
 			"_CharacterCamera": "a0f59cda456fc60544ab45961adbdf11",
-			"_CharacterController": "052ad6934cc6ee50ab8b7dbbdf8cf91d",
-			"CharacterMoveSpeed": 450.0,
-			"GravityValue": -12.0,
-			"WeaponDistance": 5000.0,
-			"SwordDistance": 20.0,
-			"RayLayers": 4294967289
+			"_CharacterController": "eec068e4422f755076e03fa9faaa89fa"
 		},
 		{
-			"ID": "1208fc5947cdb075906711943882b67e",
+			"ID": "053be33947bce9b46ab2f6aa9c8dffb8",
+			"TypeName": "Game.InterfaceTest",
+			"ParentID": "eec068e4422f755076e03fa9faaa89fa"
+		},
+		{
+			"ID": "a361d856484d2925805b4487b9c935de",
 			"PrefabID": "19b753284e941e0a0e72da9d55e8bfae",
 			"PrefabObjectID": "cb116c5f43e094c3b0d21da5a04534aa",
-			"ParentID": "052ad6934cc6ee50ab8b7dbbdf8cf91d",
-			"Layer": 1,
-			"Tag": "Player",
+			"ParentID": "eec068e4422f755076e03fa9faaa89fa",
 			"Buffer": {
 				"Entries": [
 					{}
@@ -172,12 +223,10 @@
 			}
 		},
 		{
-			"ID": "c250cff141e0a3274b953583623d8db3",
+			"ID": "88490c34492bd5a856b2709355f8e5f1",
 			"PrefabID": "19b753284e941e0a0e72da9d55e8bfae",
 			"PrefabObjectID": "0d176fa04dbaa958bda471b45dd3a608",
-			"ParentID": "1208fc5947cdb075906711943882b67e",
-			"Layer": 1,
-			"Tag": "Player",
+			"ParentID": "a361d856484d2925805b4487b9c935de",
 			"Buffer": {
 				"Entries": [
 					{}
