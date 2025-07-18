@@ -17,11 +17,13 @@
 
 #pragma once
 
-#include "Engine/Scripting/Script.h"
 
-API_INTERFACE() class GAME_API IInterface
+
+API_INTERFACE() 
+
+class IInterface
 {
-DECLARE_SCRIPTING_TYPE_MINIMAL(IInterface);
+DECLARE_SCRIPTING_TYPE_NO_SPAWN(IInterface);
 
 	API_FUNCTION() virtual void Damage(float Damage) = 0;
 

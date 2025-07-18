@@ -1,22 +1,5 @@
-﻿/*****************************************************************************
-**																			**
-**																		   	**
-**				   Copyright (C) 2000 - All Rights Reserved				   	**
-**																			**
-******************************************************************************
-**																			**
-**	Project:		    <project name>										**
-**																			**
-**	File name:		    <filename>.h/.cpp								    **
-**																			**
-**	Creation Date:		00/00/00							                **
-**																			**
-**	Script Author:  	<Name>												**
-**																			**
-*****************************************************************************/
-
-#include "InterfaceTest.h"
-#include "Engine/Debug/DebugLog.h"
+﻿#include "InterfaceTest.h"
+#include <Engine/Debug/DebugLog.h>
 
 InterfaceTest::InterfaceTest(const SpawnParams& params)
     : Script(params)
@@ -27,28 +10,7 @@ InterfaceTest::InterfaceTest(const SpawnParams& params)
 
 void InterfaceTest::OnEnable()
 {
-    IInterface* i;
-    ScriptingObject* sc = this;
-    /*
-        The issue is that the ACTOR is not the same thing as a SCRIPTINGOBJECT which is 
-        what the Interface needs, that's why its not working, I THINK
-
-
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////////
-
-    
-    */
-    i = ToInterface<IInterface>(sc);
-
-    if (i) 
-    {
-        //DebugLog::Log(LogType::Info, TEXT("mmmmmmmmmmmmmmmmmmmmmmmm"));
-
-    }
-
+    // Here you can add code that needs to be called when script is enabled (eg. register for events)
 }
 
 void InterfaceTest::OnDisable()
@@ -61,8 +23,8 @@ void InterfaceTest::OnUpdate()
     // Here you can add code that needs to be called every frame
 }
 
-void InterfaceTest::Damage(float Damage) 
+void InterfaceTest::Damage(float Damage)
 {
-    DebugLog::Log(LogType::Info, TEXT("true"));
+    DebugLog::Log(LogType::Info, TEXT("Damage Interface Method"));
 
 }

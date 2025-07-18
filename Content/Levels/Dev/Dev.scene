@@ -1,7 +1,7 @@
 {
 	"ID": "7a533f4c487fc96c9b7b2190c6fd183e",
 	"TypeName": "FlaxEngine.SceneAsset",
-	"EngineBuild": 6605,
+	"EngineBuild": 6705,
 	"Data": [
 		{
 			"ID": "7a533f4c487fc96c9b7b2190c6fd183e",
@@ -135,7 +135,9 @@
 			"TypeName": "FlaxEngine.AudioSource",
 			"ParentID": "d88da61e4cb3f5d4ae3f77b2fb187d4f",
 			"Name": "AudioSource",
+			"Volume": 0.05000000074505806,
 			"Loop": true,
+			"PlayOnStart": true,
 			"AllowSpatialization": false
 		},
 		{
@@ -153,7 +155,7 @@
 					"X": 0.0,
 					"Y": 1.0,
 					"Z": 0.0,
-					"W": -1.4901161193847657e-7
+					"W": -1.4901161193847656e-7
 				},
 				"Scale": {
 					"X": 2.0,
@@ -174,7 +176,7 @@
 			}
 		},
 		{
-			"ID": "550489bc423f822fa33520859ff3bc4c",
+			"ID": "e6374d8749cef077784556b29d9a2099",
 			"TypeName": "Game.InterfaceTest",
 			"ParentID": "505befa44029b4fe1cf153999ae557a4"
 		},
@@ -194,7 +196,7 @@
 				"Translation": {
 					"X": 2620.76708984375,
 					"Y": 130.76553344726563,
-					"Z": -284.80828857421877
+					"Z": -284.80828857421875
 				}
 			}
 		},
@@ -203,13 +205,7 @@
 			"PrefabID": "19b753284e941e0a0e72da9d55e8bfae",
 			"PrefabObjectID": "970c9c6841012fbe58839b836cbc21b0",
 			"ParentID": "eec068e4422f755076e03fa9faaa89fa",
-			"_CharacterCamera": "a0f59cda456fc60544ab45961adbdf11",
-			"_CharacterController": "eec068e4422f755076e03fa9faaa89fa"
-		},
-		{
-			"ID": "053be33947bce9b46ab2f6aa9c8dffb8",
-			"TypeName": "Game.InterfaceTest",
-			"ParentID": "eec068e4422f755076e03fa9faaa89fa"
+			"_CharacterCamera": "a0f59cda456fc60544ab45961adbdf11"
 		},
 		{
 			"ID": "a361d856484d2925805b4487b9c935de",

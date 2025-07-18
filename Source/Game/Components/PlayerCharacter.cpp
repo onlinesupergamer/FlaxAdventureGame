@@ -43,14 +43,7 @@ void PlayerCharacter::OnEnable()
     Screen::SetCursorLock(CursorLockMode::Locked);
     Screen::SetCursorVisible(false);
 
-    IInterface* i;
-    i = ToInterface<IInterface>(this);
-
-    if (i) 
-    {
-        DebugLog::Log(LogType::Info, TEXT("99999999999999999999999999"));
-
-    }
+   
 
 }
 
@@ -145,6 +138,9 @@ void PlayerCharacter::CameraHandler()
     }
 
     PlayerCamera* _Camera = static_cast<ScriptingObjectReference<PlayerCamera>>(_CharacterCamera);
+    //I think the casting here could go away
+    // TODO: Check if the casting here is needed
+
     float PlayerVerticalOffset = 30.0f;
     Transform Target = GetActor()->GetPosition();
     Target.Translation.Y = Target.Translation.Y + PlayerVerticalOffset;
@@ -203,9 +199,22 @@ void PlayerCharacter::FireWeapon()
     RayCastHit Hit;
     if (Physics::RayCast(_CharacterCamera->GetActor()->GetPosition(), _CharacterCamera->GetActor()->GetDirection(), Hit, WeaponDistance, RayLayers))
     {
-        DEBUG_DRAW_SPHERE(BoundingSphere(Hit.Point, 10), Color::Red, 10.0f, true);
+        DEBUG_DRAW_SPHERE(BoundingSphere(Hit.Point, 10.0f), Color::Red, 10.0f, true);
 
-        
+        if (Hit.Collider) 
+        {
+            auto scripts = Hit.Collider->GetParent()->Scripts;
+            for (Script* script : scripts)
+            {
+                if (auto* interface = dynamic_cast<IInterface*>(script))
+                {
+                    interface->Damage(10.0f);
+                    break;
+                }
+            }
+        }
+
+        DebugLog::Log(LogType::Info, TEXT("Hit"));
     }
 }
 
@@ -228,11 +237,20 @@ void PlayerCharacter::SwordAttack()
     Vector3 Position = GetActor()->GetPosition() + GetActor()->GetDirection() * AttackOffset;
     if (Physics::SphereCast(Position, HitSize, GetActor()->GetDirection(), SwordDistance, RayLayers)) //Bitwise Operation?
     {
-        DebugLog::Log(LogType::Info, TEXT("Hit"));
+        if (Hit.Collider)
+        {
+            DebugLog::Log(LogType::Info, TEXT("Hit"));
 
-        //DebugLog::Log(LogType::Info, Hit.Collider->GetName());
-
-        
+            auto scripts = Hit.Collider->GetParent()->Scripts;
+            for (Script* script : scripts)
+            {
+                if (auto* interface = dynamic_cast<IInterface*>(script))
+                {
+                    interface->Damage(10.0f);
+                    break;
+                }
+            }
+        }
     }
     DEBUG_DRAW_SPHERE(BoundingSphere(Position, HitSize), Color::Blue, 10.0f, true);
 
