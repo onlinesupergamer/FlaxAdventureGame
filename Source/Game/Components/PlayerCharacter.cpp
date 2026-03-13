@@ -30,6 +30,7 @@ PlayerCharacter::PlayerCharacter(const SpawnParams& params)
 {
     
     _tickUpdate = true;
+    _tickFixedUpdate = true;
     _tickLateUpdate = true;
 
     CharacterMoveSpeed = 300.0f;
@@ -56,12 +57,13 @@ void PlayerCharacter::OnUpdate()
 {
     AimCheck();
     MoveCharacter();
-    Gravity();
     AttackCheck();
-
-    bIsGrounded = _CharacterController->IsGrounded();
-
   
+}
+
+void PlayerCharacter::OnFixedUpdate()
+{
+
 }
 
 void PlayerCharacter::OnLateUpdate() 
@@ -72,16 +74,13 @@ void PlayerCharacter::OnLateUpdate()
 
 void PlayerCharacter::MoveCharacter() 
 {
-    if (!_CharacterController || !_CharacterCamera) 
+    if (!m_CharacterController || !m_CharacterCamera) 
     {
         DebugLog::Log(LogType::Error, TEXT("Character Controller Or Character Camera Is Missing"));
         return;
     }
 
-    Vector3 MoveVector;
-    
-    //We have to do a type conversion because the compiler is retarded
-    PlayerCamera* _Camera = static_cast<ScriptingObjectReference<PlayerCamera>>(_CharacterCamera);
+    PlayerCamera* _Camera = static_cast<ScriptingObjectReference<PlayerCamera>>(m_CharacterCamera);
     Transform CameraTransform = _Camera->GetActor()->GetTransform();
     Vector3 CamForward = CameraTransform.GetForward();
     Vector3 CamRight = CameraTransform.GetRight();
@@ -91,17 +90,20 @@ void PlayerCharacter::MoveCharacter()
     CamRight.Normalize();
     Vector3 NewForwardVec = (float)PLAYER_VERTICAL_INPUT * CamForward;
     Vector3 NewRightVec = (float)PLAYER_HORIZONTAL_INPUT * CamRight;
-    MoveVector = NewForwardVec + NewRightVec;
+    MovementVector = NewForwardVec + NewRightVec;
 
-    _CharacterController->Move((MoveVector * CharacterMoveSpeed) * GetDT());
+    Gravity();
+
+    MovementVector.Y = JumpVelocity;
+    m_CharacterController->Move((MovementVector * CharacterMoveSpeed) * Time::GetDeltaTime());
 
     float RotSmoothing = 20.0f;
-    float RotFactor = Math::Saturate(RotSmoothing * GetDT());
+    float RotFactor = Math::Saturate(RotSmoothing * Time::GetDeltaTime());
     Quaternion Rot;
 
     if (PLAYER_HORIZONTAL_INPUT != 0 || PLAYER_VERTICAL_INPUT != 0) 
     {
-        float TargetAngle = Math::Atan2(MoveVector.X, MoveVector.Z) * RadiansToDegrees;
+        float TargetAngle = Math::Atan2(MovementVector.X, MovementVector.Z) * RadiansToDegrees;
 
         if (!bIsAiming) 
         {
@@ -131,15 +133,16 @@ void PlayerCharacter::CameraHandler()
       ////////////////////////////////////////////////////////////////////////////
     */
 
-    if (!_CharacterCamera)
+
+    if (!m_CharacterCamera)
     {
         DebugLog::Log(LogType::Error, TEXT("Main Camera Is Missing"));
         return;
     }
 
-    PlayerCamera* _Camera = static_cast<ScriptingObjectReference<PlayerCamera>>(_CharacterCamera);
-    //I think the casting here could go away
-    // TODO: Check if the casting here is needed
+    PlayerCamera* _Camera = static_cast<ScriptingObjectReference<PlayerCamera>>(m_CharacterCamera);
+    //Ok, I did this casting here before I understood what the issues I had were
+    //and I now know how I should be doing this instead, i'll refactor this later
 
     float PlayerVerticalOffset = 30.0f;
     Transform Target = GetActor()->GetPosition();
@@ -147,15 +150,32 @@ void PlayerCharacter::CameraHandler()
     Quaternion TargetRotation;
     xRotation = Math::Clamp(xRotation + PLAYER_ROTATION_INPUT_V, (float)-180, (float)250);
     yRotation += PLAYER_ROTATION_INPUT_H;
-    TargetRotation = Quaternion::Euler(xRotation * CameraLookSpeed, yRotation * CameraLookSpeed, 0);
+    TargetRotation = Quaternion::Euler(xRotation * (CameraLookSpeed * 1.0f), yRotation * (CameraLookSpeed * 1.0f), 0);
     _Camera->GetActor()->SetPosition(Target.Translation - TargetRotation * _Camera->Offset + Vector3(0, 1, 0));
     _Camera->GetActor()->SetOrientation(TargetRotation);
 }
 
 void PlayerCharacter::Gravity() 
 {
-    Vector3 GravityVector(0, GravityValue, 0);
-    _CharacterController->Move(GravityVector);
+    if(m_CharacterController->IsGrounded())
+    {
+        JumpVelocity = -2.0f;
+
+        if(Input::GetAction(TEXT("Jump")))
+        {
+            JumpVelocity = JumpForce;
+        }
+    }
+
+    else
+    {
+        JumpVelocity -= GravityValue * Time::GetDeltaTime();
+
+        //TODO: Clamp the velocity so the player can't fall at mach jesus
+    }
+    
+
+
 }
 
 void PlayerCharacter::AimCheck() 
@@ -168,14 +188,14 @@ void PlayerCharacter::AimCheck()
     if (Input::GetAction(TEXT("StartAim")))
     {
         bIsAiming = true;
-        _CharacterCamera->bIsAiming = true;
-        _CharacterCamera->StartAim();
+        m_CharacterCamera->bIsAiming = true;
+        m_CharacterCamera->StartAim();
     }
     else if (Input::GetAction(TEXT("StopAim")))
     {
         bIsAiming = false;
-        _CharacterCamera->bIsAiming = false;
-        _CharacterCamera->StopAim();
+        m_CharacterCamera->bIsAiming = false;
+        m_CharacterCamera->StopAim();
     }
 
 }
@@ -192,12 +212,12 @@ void PlayerCharacter::AttackCheck()
     }
 }
 
+
 void PlayerCharacter::FireWeapon() 
 {
-
     DebugLog::Log(LogType::Info, TEXT("Fire Gun"));
     RayCastHit Hit;
-    if (Physics::RayCast(_CharacterCamera->GetActor()->GetPosition(), _CharacterCamera->GetActor()->GetDirection(), Hit, WeaponDistance, RayLayers))
+    if (Physics::RayCast(m_CharacterCamera->GetActor()->GetPosition(), m_CharacterCamera->GetActor()->GetDirection(), Hit, WeaponDistance, RayLayers))
     {
         DEBUG_DRAW_SPHERE(BoundingSphere(Hit.Point, 10.0f), Color::Red, 10.0f, true);
 
@@ -223,9 +243,11 @@ void PlayerCharacter::SwordAttack()
     /*
         Simple way of doing damage, but there are possible issues 
         with being able to do damage through walls
-
         Might be possible to check line of sight with a raycast for each object that
         was hit to see if it's blocked by a wall and if so, don't do damage to that entity
+
+        EDIT: The fuck was i smoking when i wrote that comment? That's not even what should be done here at ALL
+
     */
         ////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////
@@ -257,12 +279,6 @@ void PlayerCharacter::SwordAttack()
     //Update this to check for ALL entities that have been hit
 }
 
-float PlayerCharacter::GetDT() 
-{
-    //Returns DeltaTime
-    float DT = Time::GetDeltaTime();
-    return DT;
-}
 
 float PlayerCharacter::LerpC(float l1, float l2, float LerpSpeed)
 {

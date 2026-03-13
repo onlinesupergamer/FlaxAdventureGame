@@ -1,0 +1,137 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Advent|Editor.Windows.Debug|x64",
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			},
+			"command": "..\\..\\..\\..\\..\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Tools\\Flax.Build",
+			"args": [
+				"-build",
+				"-log",
+				"-mutex",
+				"\\\"-workspace=C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame\\\"",
+				"-arch=x64",
+				"-configuration=Debug",
+				"-platform=Windows",
+				"-buildTargets=GameEditorTarget"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame"
+			}
+		},
+		{
+			"label": "Advent|Editor.Windows.Development|x64",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"command": "..\\..\\..\\..\\..\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Tools\\Flax.Build",
+			"args": [
+				"-build",
+				"-log",
+				"-mutex",
+				"\\\"-workspace=C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame\\\"",
+				"-arch=x64",
+				"-configuration=Development",
+				"-platform=Windows",
+				"-buildTargets=GameEditorTarget"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame"
+			}
+		},
+		{
+			"label": "Advent|Editor.Windows.Release|x64",
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			},
+			"command": "..\\..\\..\\..\\..\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Tools\\Flax.Build",
+			"args": [
+				"-build",
+				"-log",
+				"-mutex",
+				"\\\"-workspace=C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame\\\"",
+				"-arch=x64",
+				"-configuration=Release",
+				"-platform=Windows",
+				"-buildTargets=GameEditorTarget"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame"
+			}
+		},
+		{
+			"label": "Advent|Game.Windows.Debug|x64",
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			},
+			"command": "..\\..\\..\\..\\..\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Tools\\Flax.Build",
+			"args": [
+				"-build",
+				"-log",
+				"-mutex",
+				"\\\"-workspace=C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame\\\"",
+				"-arch=x64",
+				"-configuration=Debug",
+				"-platform=Windows",
+				"-buildTargets=GameTarget"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame"
+			}
+		},
+		{
+			"label": "Advent|Game.Windows.Development|x64",
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			},
+			"command": "..\\..\\..\\..\\..\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Tools\\Flax.Build",
+			"args": [
+				"-build",
+				"-log",
+				"-mutex",
+				"\\\"-workspace=C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame\\\"",
+				"-arch=x64",
+				"-configuration=Development",
+				"-platform=Windows",
+				"-buildTargets=GameTarget"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame"
+			}
+		},
+		{
+			"label": "Advent|Game.Windows.Release|x64",
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			},
+			"command": "..\\..\\..\\..\\..\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Tools\\Flax.Build",
+			"args": [
+				"-build",
+				"-log",
+				"-mutex",
+				"\\\"-workspace=C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame\\\"",
+				"-arch=x64",
+				"-configuration=Release",
+				"-platform=Windows",
+				"-buildTargets=GameTarget"
+			],
+			"type": "shell",
+			"options": {
+				"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame"
+			}
+		}
+	]
+}

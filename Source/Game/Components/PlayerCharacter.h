@@ -29,12 +29,13 @@
 
 #define PLAYER_HORIZONTAL_INPUT Input::GetAxisRaw(TEXT("Horizontal"))
 #define PLAYER_VERTICAL_INPUT Input::GetAxisRaw(TEXT("Vertical"))
-#define PLAYER_ROTATION_INPUT_H Input::GetAxisRaw(TEXT("Mouse X"))
-#define PLAYER_ROTATION_INPUT_V Input::GetAxisRaw(TEXT("Mouse Y"))
+#define PLAYER_ROTATION_INPUT_H Input::GetAxis(TEXT("LookRight"))
+#define PLAYER_ROTATION_INPUT_V Input::GetAxis(TEXT("LookUp"))
 #define PLAYER_AIM_START Input::GetAction(TEXT("StartAim"));
 #define PLAYER_AIM_STOP Input::GetAction(TEXT("StopAim"));
 #define PLAYER_FIRE_START Input::GetAction(TEXT("StartFire"));
 #define PLAYER_FIRE_STOP Input::GetAction(TEXT("StopFire"));
+#define PLAYER_JUMP Input::GetAction(TEXT("Jump"));
 
 
 
@@ -47,20 +48,24 @@ DECLARE_SCRIPTING_TYPE(PlayerCharacter);
     void OnEnable() override;
     void OnDisable() override;
     void OnUpdate() override;
+    void OnFixedUpdate() override;
     void OnLateUpdate() override;
 
 public:
 
-    API_FIELD() ScriptingObjectReference<PlayerCamera> _CharacterCamera;
-    API_FIELD() ScriptingObjectReference<CharacterController> _CharacterController;
-    API_FIELD() float CharacterMoveSpeed;
-    API_FIELD() float GravityValue;
-    API_FIELD() bool bIsGrounded;
+    API_FIELD() ScriptingObjectReference<PlayerCamera> m_CharacterCamera = nullptr;
+    API_FIELD() ScriptingObjectReference<CharacterController> m_CharacterController = nullptr;
+    API_FIELD() float CharacterMoveSpeed = 400;
+    API_FIELD() float GravityValue = -4;
     API_FIELD() bool bIsAiming;
-    API_FIELD() float WeaponDistance;
-    API_FIELD() float SwordDistance;
+    API_FIELD() float WeaponDistance = 5000;
+    API_FIELD() float SwordDistance = 150;
+    API_FIELD() float JumpForce = 5.0f;
     API_FIELD() LayersMask RayLayers;
 
+
+    Vector3 MovementVector = Vector3(0.0f);
+    float JumpVelocity = 0.0f;
 
 private:
 
@@ -71,7 +76,6 @@ private:
     void SwordAttack();
     void AimCheck();
     void AttackCheck();
-    float GetDT();              //Should be set in a Utility file
     float LerpC(float l1, float l2, float LerpSpeed);
 
     float yRotation = 0.0f;

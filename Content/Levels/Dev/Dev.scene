@@ -1,7 +1,7 @@
 {
 	"ID": "7a533f4c487fc96c9b7b2190c6fd183e",
 	"TypeName": "FlaxEngine.SceneAsset",
-	"EngineBuild": 6705,
+	"EngineBuild": 6802,
 	"Data": [
 		{
 			"ID": "7a533f4c487fc96c9b7b2190c6fd183e",
@@ -131,6 +131,14 @@
 			"Name": "MusicController"
 		},
 		{
+			"ID": "485ec8db4e51ee69209c07863df78c87",
+			"TypeName": "Game.MusicController",
+			"ParentID": "d88da61e4cb3f5d4ae3f77b2fb187d4f",
+			"LevelMusic": "6466e4174ef77088fb4707b07b069fe8",
+			"Source": "7fdd5ac6473f678208592f8e376b3ed5",
+			"MusicVolume": 0.05000000074505806
+		},
+		{
 			"ID": "7fdd5ac6473f678208592f8e376b3ed5",
 			"TypeName": "FlaxEngine.AudioSource",
 			"ParentID": "d88da61e4cb3f5d4ae3f77b2fb187d4f",
@@ -205,7 +213,11 @@
 			"PrefabID": "19b753284e941e0a0e72da9d55e8bfae",
 			"PrefabObjectID": "970c9c6841012fbe58839b836cbc21b0",
 			"ParentID": "eec068e4422f755076e03fa9faaa89fa",
-			"_CharacterCamera": "a0f59cda456fc60544ab45961adbdf11"
+			"m_CharacterCamera": "a0f59cda456fc60544ab45961adbdf11",
+			"m_CharacterController": "eec068e4422f755076e03fa9faaa89fa",
+			"CharacterMoveSpeed": 500.0,
+			"GravityValue": 7.0,
+			"JumpForce": 2.0
 		},
 		{
 			"ID": "a361d856484d2925805b4487b9c935de",
