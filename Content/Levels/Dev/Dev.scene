@@ -37,9 +37,9 @@
 			"Name": "Camera",
 			"Transform": {
 				"Translation": {
-					"X": 0.0,
-					"Y": 150.0,
-					"Z": -537.6786499023438
+					"X": 2393.296142578125,
+					"Y": 225.9027099609375,
+					"Z": -732.3416137695313
 				}
 			}
 		},
@@ -134,9 +134,9 @@
 			"ID": "485ec8db4e51ee69209c07863df78c87",
 			"TypeName": "Game.MusicController",
 			"ParentID": "d88da61e4cb3f5d4ae3f77b2fb187d4f",
-			"LevelMusic": "6466e4174ef77088fb4707b07b069fe8",
+			"LevelMusic": "7155aa404afa40ca540b2da969738030",
 			"Source": "7fdd5ac6473f678208592f8e376b3ed5",
-			"MusicVolume": 0.05000000074505806
+			"MusicVolume": 0.10000000149011612
 		},
 		{
 			"ID": "7fdd5ac6473f678208592f8e376b3ed5",
@@ -214,10 +214,7 @@
 			"PrefabObjectID": "970c9c6841012fbe58839b836cbc21b0",
 			"ParentID": "eec068e4422f755076e03fa9faaa89fa",
 			"m_CharacterCamera": "a0f59cda456fc60544ab45961adbdf11",
-			"m_CharacterController": "eec068e4422f755076e03fa9faaa89fa",
-			"CharacterMoveSpeed": 500.0,
-			"GravityValue": 7.0,
-			"JumpForce": 2.0
+			"CrosshairImage": "2b1ab2b1496762298e57bbb58ae76a7b"
 		},
 		{
 			"ID": "a361d856484d2925805b4487b9c935de",
@@ -240,6 +237,218 @@
 					{}
 				]
 			}
+		},
+		{
+			"ID": "f7b3fae14c268f090c1c508072d78bc5",
+			"TypeName": "FlaxEngine.UICanvas",
+			"ParentID": "7a533f4c487fc96c9b7b2190c6fd183e",
+			"Name": "UICanvas",
+			"Transform": {
+				"Orientation": {
+					"X": 1.0,
+					"Y": 4.371138828673793e-8,
+					"Z": 4.371138828673793e-8,
+					"W": 1.910685465164705e-15
+				}
+			},
+			"V": {}
+		},
+		{
+			"ID": "11aff0914ed78e3fdf317bad417eb8a1",
+			"TypeName": "FlaxEngine.UIControl",
+			"ParentID": "f7b3fae14c268f090c1c508072d78bc5",
+			"Name": "Canvas Scalar",
+			"Transform": {
+				"Translation": {
+					"X": -2.0,
+					"Y": -2.0,
+					"Z": 0.0
+				}
+			},
+			"Control": "FlaxEngine.GUI.CanvasScaler",
+			"Data": {
+	"ResolutionCurve": {
+		"Keyframes": [
+			{
+				"Time": 0.0,
+				"Value": 0.0
+			},
+			{
+				"Time": 480.0,
+				"Value": 0.444
+			},
+			{
+				"Time": 720.0,
+				"Value": 0.666
+			},
+			{
+				"Time": 1080.0,
+				"Value": 1.0
+			},
+			{
+				"Time": 8640.0,
+				"Value": 8.0
+			}
+		]
+	},
+	"DpiCurve": {
+		"Keyframes": [
+			{
+				"Time": 1.0,
+				"Value": 1.0
+			},
+			{
+				"Time": 96.0,
+				"Value": 1.0
+			},
+			{
+				"Time": 200.0,
+				"Value": 2.0
+			},
+			{
+				"Time": 400.0,
+				"Value": 4.0
+			}
+		]
+	},
+	"Scaling": 0,
+	"ScaleFactor": 1.0,
+	"PhysicalUnit": 3,
+	"PhysicalUnitSize": 1.0,
+	"ResolutionMode": 0,
+	"ResolutionMin": {
+		"X": 1.0,
+		"Y": 1.0
+	},
+	"ResolutionMax": {
+		"X": 7680.0,
+		"Y": 4320.0
+	},
+	"ClipChildren": true,
+	"CullChildren": true,
+	"AnchorMin": {
+		"X": 0.0,
+		"Y": 0.0
+	},
+	"AnchorMax": {
+		"X": 1.0,
+		"Y": 1.0
+	},
+	"Offsets": {
+		"Left": -2.0,
+		"Right": 2.0,
+		"Top": -2.0,
+		"Bottom": 2.0
+	},
+	"Scale": {
+		"X": 1.0,
+		"Y": 1.0
+	},
+	"Pivot": {
+		"X": 0.5,
+		"Y": 0.5
+	},
+	"Shear": {
+		"X": 0.0,
+		"Y": 0.0
+	},
+	"Rotation": 0.0,
+	"BackgroundColor": {
+		"R": 0.0,
+		"G": 0.0,
+		"B": 0.0,
+		"A": 0.0
+	},
+	"BackgroundBrush": null,
+	"Enabled": true,
+	"Visible": true,
+	"AutoFocus": false
+}
+		},
+		{
+			"ID": "2b1ab2b1496762298e57bbb58ae76a7b",
+			"TypeName": "FlaxEngine.UIControl",
+			"ParentID": "f7b3fae14c268f090c1c508072d78bc5",
+			"Name": "Crosshair",
+			"Transform": {
+				"Translation": {
+					"X": 944.0,
+					"Y": 524.0,
+					"Z": 0.0
+				}
+			},
+			"Control": "FlaxEngine.GUI.Image",
+			"Data": {
+	"Brush": null,
+	"Margin": {
+		"Left": 0.0,
+		"Right": 0.0,
+		"Top": 0.0,
+		"Bottom": 0.0
+	},
+	"Color": {
+		"R": 1.0,
+		"G": 1.0,
+		"B": 1.0,
+		"A": 1.0
+	},
+	"MouseOverColor": {
+		"R": 1.0,
+		"G": 1.0,
+		"B": 1.0,
+		"A": 1.0
+	},
+	"DisabledTint": {
+		"R": 0.5019608,
+		"G": 0.5019608,
+		"B": 0.5019608,
+		"A": 1.0
+	},
+	"KeepAspectRatio": true,
+	"ClipChildren": true,
+	"CullChildren": true,
+	"AnchorMin": {
+		"X": 0.5,
+		"Y": 0.5
+	},
+	"AnchorMax": {
+		"X": 0.5,
+		"Y": 0.5
+	},
+	"Offsets": {
+		"Left": -16.0,
+		"Right": 32.0,
+		"Top": -16.0,
+		"Bottom": 32.0
+	},
+	"Scale": {
+		"X": 1.0,
+		"Y": 1.0
+	},
+	"Pivot": {
+		"X": 0.5,
+		"Y": 0.5
+	},
+	"Shear": {
+		"X": 0.0,
+		"Y": 0.0
+	},
+	"Rotation": 0.0,
+	"BackgroundColor": {
+		"R": 1.0,
+		"G": 1.0,
+		"B": 1.0,
+		"A": 1.0
+	},
+	"BackgroundBrush": {
+		"$type": "FlaxEngine.GUI.TextureBrush, FlaxEngine.CSharp",
+		"Texture": "aeb69ffa4cf757d0191cf6a78230d3fc",
+		"Filter": 1
+	},
+	"Enabled": true,
+	"Visible": true,
+	"AutoFocus": false
+}
 		}
 	]
 }

@@ -24,7 +24,7 @@
 #include "Engine/Core/Types/LayersMask.h"
 #include "../Gameplay/IInterface.h"
 #include "PlayerCamera.h"
-
+#include <Engine/UI/UIControl.h>
 
 
 #define PLAYER_HORIZONTAL_INPUT Input::GetAxisRaw(TEXT("Horizontal"))
@@ -55,6 +55,7 @@ public:
 
     API_FIELD() ScriptingObjectReference<PlayerCamera> m_CharacterCamera = nullptr;
     API_FIELD() ScriptingObjectReference<CharacterController> m_CharacterController = nullptr;
+    API_FIELD() ScriptingObjectReference<UIControl> CrosshairImage = nullptr;
     API_FIELD() float CharacterMoveSpeed = 400;
     API_FIELD() float GravityValue = -4;
     API_FIELD() bool bIsAiming;

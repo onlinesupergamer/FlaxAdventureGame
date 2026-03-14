@@ -1,7 +1,7 @@
 {
 	"ID": "19b753284e941e0a0e72da9d55e8bfae",
 	"TypeName": "FlaxEngine.Prefab",
-	"EngineBuild": 6605,
+	"EngineBuild": 6802,
 	"Data": [
 	{
 		"ID": "5e9a737d454e22940e54f081c54f6d22",
@@ -15,11 +15,13 @@
 		"ID": "970c9c6841012fbe58839b836cbc21b0",
 		"TypeName": "Game.PlayerCharacter",
 		"ParentID": "5e9a737d454e22940e54f081c54f6d22",
-		"_CharacterController": "5e9a737d454e22940e54f081c54f6d22",
-		"bIsGrounded": true,
-		"WeaponDistance": 5000.0,
-		"SwordDistance": 150.0,
-		"RayLayers": 4294967293
+		"m_CharacterCamera": "a0f59cda456fc60544ab45961adbdf11",
+		"m_CharacterController": "5e9a737d454e22940e54f081c54f6d22",
+		"CrosshairImage": "2b1ab2b1496762298e57bbb58ae76a7b",
+		"CharacterMoveSpeed": 500.0,
+		"GravityValue": 4.0,
+		"JumpForce": 1.399999976158142,
+		"RayLayers": 4294967289
 	},
 	{
 		"ID": "cb116c5f43e094c3b0d21da5a04534aa",
@@ -66,12 +68,12 @@
 				"X": 0.0,
 				"Y": 0.7071065902709961,
 				"Z": 0.0,
-				"W": -0.7071069478988648
+				"W": -0.7071069478988647
 			},
 			"Scale": {
 				"X": 0.1900225579738617,
 				"Y": 0.1628132164478302,
-				"Z": 0.44511714577674868
+				"Z": 0.44511714577674866
 			}
 		},
 		"Layer": 1,

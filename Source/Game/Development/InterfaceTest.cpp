@@ -1,5 +1,7 @@
 ﻿#include "InterfaceTest.h"
 #include <Engine/Debug/DebugLog.h>
+#include <Engine/Level/Actor.h>
+
 
 InterfaceTest::InterfaceTest(const SpawnParams& params)
     : Script(params)
@@ -25,6 +27,12 @@ void InterfaceTest::OnUpdate()
 
 void InterfaceTest::Damage(float Damage)
 {
-    DebugLog::Log(LogType::Info, TEXT("Damage Interface Method"));
+    Health -= Damage;
+    DebugLog::Log(LogType::Info, String::Format(TEXT("{0}"), Health));
+    
+    if(Health <= 0)
+    {
+        GetActor()->DeleteObject();
 
+    }
 }

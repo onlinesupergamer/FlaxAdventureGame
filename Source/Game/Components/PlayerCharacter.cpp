@@ -43,6 +43,7 @@ void PlayerCharacter::OnEnable()
 {
     Screen::SetCursorLock(CursorLockMode::Locked);
     Screen::SetCursorVisible(false);
+    CrosshairImage->SetIsActive(false);
 
    
 
@@ -142,7 +143,7 @@ void PlayerCharacter::CameraHandler()
 
     PlayerCamera* _Camera = static_cast<ScriptingObjectReference<PlayerCamera>>(m_CharacterCamera);
     //Ok, I did this casting here before I understood what the issues I had were
-    //and I now know how I should be doing this instead, i'll refactor this later
+    //and I now know how I shouldnt be doing this, i'll refactor this later
 
     float PlayerVerticalOffset = 30.0f;
     Transform Target = GetActor()->GetPosition();
@@ -159,7 +160,7 @@ void PlayerCharacter::Gravity()
 {
     if(m_CharacterController->IsGrounded())
     {
-        JumpVelocity = -2.0f;
+        JumpVelocity = -0.75f;
 
         if(Input::GetAction(TEXT("Jump")))
         {
@@ -171,7 +172,8 @@ void PlayerCharacter::Gravity()
     {
         JumpVelocity -= GravityValue * Time::GetDeltaTime();
 
-        //TODO: Clamp the velocity so the player can't fall at mach jesus
+        JumpVelocity = Math::Clamp(JumpVelocity, -3.5f, 3.5f);
+        //Clamping the velocity so the player can't fall at mach jesus
     }
     
 
@@ -189,12 +191,14 @@ void PlayerCharacter::AimCheck()
     {
         bIsAiming = true;
         m_CharacterCamera->bIsAiming = true;
+        CrosshairImage->SetIsActive(true);
         m_CharacterCamera->StartAim();
     }
     else if (Input::GetAction(TEXT("StopAim")))
     {
         bIsAiming = false;
         m_CharacterCamera->bIsAiming = false;
+        CrosshairImage->SetIsActive(false);
         m_CharacterCamera->StopAim();
     }
 
@@ -214,28 +218,29 @@ void PlayerCharacter::AttackCheck()
 
 
 void PlayerCharacter::FireWeapon() 
-{
+{ 
     DebugLog::Log(LogType::Info, TEXT("Fire Gun"));
     RayCastHit Hit;
-    if (Physics::RayCast(m_CharacterCamera->GetActor()->GetPosition(), m_CharacterCamera->GetActor()->GetDirection(), Hit, WeaponDistance, RayLayers))
-    {
-        DEBUG_DRAW_SPHERE(BoundingSphere(Hit.Point, 10.0f), Color::Red, 10.0f, true);
 
-        if (Hit.Collider) 
+    if (Physics::SphereCast(m_CharacterCamera->GetActor()->GetPosition(), 18.0f, m_CharacterCamera->GetActor()->GetDirection(), Hit, WeaponDistance, RayLayers))
+    {
+        DEBUG_DRAW_SPHERE(BoundingSphere(Hit.Point, 18), Color::AliceBlue, 10.0f, true);
+
+        if(Hit.Collider)
         {
             auto scripts = Hit.Collider->GetParent()->Scripts;
-            for (Script* script : scripts)
+            for(Script* script : scripts)
             {
-                if (auto* interface = dynamic_cast<IInterface*>(script))
+                if(auto* interface = dynamic_cast<IInterface*>(script))
                 {
-                    interface->Damage(10.0f);
-                    break;
+                    interface->Damage(15.0f);
+                    break;   
                 }
             }
         }
-
-        DebugLog::Log(LogType::Info, TEXT("Hit"));
     }
+
+    DEBUG_DRAW_SPHERE(BoundingSphere(m_CharacterCamera->GetActor()->GetPosition(), 18), Color::Blue, 10.0f, true);
 }
 
 void PlayerCharacter::SwordAttack() 

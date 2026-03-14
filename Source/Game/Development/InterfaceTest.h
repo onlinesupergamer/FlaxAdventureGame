@@ -13,6 +13,7 @@ DECLARE_SCRIPTING_TYPE(InterfaceTest);
     void OnDisable() override;
     void OnUpdate() override;
 
+    int8 Health = 100;
 
     void Damage(float Damage) override;
 };
