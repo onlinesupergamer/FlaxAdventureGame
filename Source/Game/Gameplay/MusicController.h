@@ -35,8 +35,9 @@ DECLARE_SCRIPTING_TYPE(MusicController);
     void SetupMusic();
     void PlayMusic();
 
-    API_FIELD() ScriptingObjectReference<AudioClip> LevelMusic;
-    API_FIELD() ScriptingObjectReference<AudioSource> Source;
-    API_FIELD() float MusicVolume;
+    API_FIELD() ScriptingObjectReference<AudioClip> LevelMusic = nullptr;
+    API_FIELD() ScriptingObjectReference<AudioSource> Source = nullptr;
+    API_FIELD() float MusicVolume = 0.1f;
+    API_FIELD() bool bPlayMusic = false;
     
 };

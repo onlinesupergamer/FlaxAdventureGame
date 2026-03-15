@@ -15,33 +15,30 @@
 		"ID": "970c9c6841012fbe58839b836cbc21b0",
 		"TypeName": "Game.PlayerCharacter",
 		"ParentID": "5e9a737d454e22940e54f081c54f6d22",
-		"m_CharacterCamera": "a0f59cda456fc60544ab45961adbdf11",
+		"m_PlayerCamera": "a0f59cda456fc60544ab45961adbdf11",
 		"m_CharacterController": "5e9a737d454e22940e54f081c54f6d22",
+		"Playermodel": "6e9a19fd49a603dbdb8857b3fad60a9a",
 		"CrosshairImage": "2b1ab2b1496762298e57bbb58ae76a7b",
 		"CharacterMoveSpeed": 500.0,
 		"GravityValue": 4.0,
+		"SwordDistance": -1.8820718139522796e-7,
 		"JumpForce": 1.399999976158142,
 		"RayLayers": 4294967289
 	},
 	{
-		"ID": "cb116c5f43e094c3b0d21da5a04534aa",
-		"TypeName": "FlaxEngine.StaticModel",
+		"ID": "6e9a19fd49a603dbdb8857b3fad60a9a",
+		"TypeName": "FlaxEngine.AnimatedModel",
 		"ParentID": "5e9a737d454e22940e54f081c54f6d22",
-		"Name": "StaticModel",
+		"Name": "Playermodel",
 		"Transform": {
 			"Translation": {
 				"X": 0.0,
-				"Y": -80.0,
+				"Y": -85.45063781738281,
 				"Z": 0.0
-			},
-			"Scale": {
-				"X": 1.600000023841858,
-				"Y": 1.6000001430511475,
-				"Z": 1.6000001430511475
 			}
 		},
-		"Layer": 1,
-		"Model": "3f82e57744f57c28285150b646ad2198",
+		"SkinnedModel": "a36e31ce472eb8b2cfd1318f7cdaea31",
+		"AnimationGraph": "7bbba6fc4d1f7919b40f3f9a9420653e",
 		"Buffer": {
 			"Entries": [
 				{
@@ -49,37 +46,7 @@
 					"ShadowsMode": 3,
 					"Visible": true,
 					"ReceiveDecals": true
-				}
-			]
-		}
-	},
-	{
-		"ID": "0d176fa04dbaa958bda471b45dd3a608",
-		"TypeName": "FlaxEngine.StaticModel",
-		"ParentID": "cb116c5f43e094c3b0d21da5a04534aa",
-		"Name": "StaticModel",
-		"Transform": {
-			"Translation": {
-				"X": 0.0,
-				"Y": 78.47250366210938,
-				"Z": 13.944908142089844
-			},
-			"Orientation": {
-				"X": 0.0,
-				"Y": 0.7071065902709961,
-				"Z": 0.0,
-				"W": -0.7071069478988647
-			},
-			"Scale": {
-				"X": 0.1900225579738617,
-				"Y": 0.1628132164478302,
-				"Z": 0.44511714577674866
-			}
-		},
-		"Layer": 1,
-		"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
-		"Buffer": {
-			"Entries": [
+				},
 				{
 					"Material": "00000000000000000000000000000000",
 					"ShadowsMode": 3,

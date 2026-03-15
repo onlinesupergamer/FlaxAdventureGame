@@ -25,6 +25,7 @@
 #include "Engine/Debug/DebugDraw.h"
 
 
+
 PlayerCharacter::PlayerCharacter(const SpawnParams& params)
     : Script(params)
 {
@@ -36,6 +37,7 @@ PlayerCharacter::PlayerCharacter(const SpawnParams& params)
     CharacterMoveSpeed = 300.0f;
     GravityValue = -4.0f;
     bIsAiming = false;
+
     
 }
 
@@ -45,7 +47,11 @@ void PlayerCharacter::OnEnable()
     Screen::SetCursorVisible(false);
     CrosshairImage->SetIsActive(false);
 
-   
+    if(Playermodel != ((void*)0))
+    {
+        AnimSpeedParameter = Playermodel.As<AnimatedModel>()->GetParameter(TEXT("Speed"));
+        AnimFallingParameter = Playermodel.As<AnimatedModel>()->GetParameter(TEXT("bIsFalling"));
+    }
 
 }
 
@@ -59,7 +65,8 @@ void PlayerCharacter::OnUpdate()
     AimCheck();
     MoveCharacter();
     AttackCheck();
-  
+    PlayerAnimations();
+    
 }
 
 void PlayerCharacter::OnFixedUpdate()
@@ -75,14 +82,14 @@ void PlayerCharacter::OnLateUpdate()
 
 void PlayerCharacter::MoveCharacter() 
 {
-    if (!m_CharacterController || !m_CharacterCamera) 
+    if (!m_CharacterController || !m_PlayerCamera) 
     {
         DebugLog::Log(LogType::Error, TEXT("Character Controller Or Character Camera Is Missing"));
         return;
     }
 
-    PlayerCamera* _Camera = static_cast<ScriptingObjectReference<PlayerCamera>>(m_CharacterCamera);
-    Transform CameraTransform = _Camera->GetActor()->GetTransform();
+
+    Transform CameraTransform = m_PlayerCamera->GetActor()->GetTransform();
     Vector3 CamForward = CameraTransform.GetForward();
     Vector3 CamRight = CameraTransform.GetRight();
     CamRight.Y = 0;
@@ -115,7 +122,7 @@ void PlayerCharacter::MoveCharacter()
 
     if (bIsAiming) 
     {
-        Rot = Quaternion::Lerp(GetActor()->GetOrientation(), _Camera->GetActor()->GetOrientation(), RotFactor);
+        Rot = Quaternion::Lerp(GetActor()->GetOrientation(), m_PlayerCamera->GetActor()->GetOrientation(), RotFactor);
         Quaternion AdjustedRot = Rot.Euler(0, Rot.GetEuler().Y, 0);
         GetActor()->SetOrientation(AdjustedRot);
     }
@@ -135,15 +142,11 @@ void PlayerCharacter::CameraHandler()
     */
 
 
-    if (!m_CharacterCamera)
+    if (!m_PlayerCamera)
     {
         DebugLog::Log(LogType::Error, TEXT("Main Camera Is Missing"));
         return;
     }
-
-    PlayerCamera* _Camera = static_cast<ScriptingObjectReference<PlayerCamera>>(m_CharacterCamera);
-    //Ok, I did this casting here before I understood what the issues I had were
-    //and I now know how I shouldnt be doing this, i'll refactor this later
 
     float PlayerVerticalOffset = 30.0f;
     Transform Target = GetActor()->GetPosition();
@@ -152,8 +155,8 @@ void PlayerCharacter::CameraHandler()
     xRotation = Math::Clamp(xRotation + PLAYER_ROTATION_INPUT_V, (float)-180, (float)250);
     yRotation += PLAYER_ROTATION_INPUT_H;
     TargetRotation = Quaternion::Euler(xRotation * (CameraLookSpeed * 1.0f), yRotation * (CameraLookSpeed * 1.0f), 0);
-    _Camera->GetActor()->SetPosition(Target.Translation - TargetRotation * _Camera->Offset + Vector3(0, 1, 0));
-    _Camera->GetActor()->SetOrientation(TargetRotation);
+    m_PlayerCamera->GetActor()->SetPosition(Target.Translation - TargetRotation * m_PlayerCamera->Offset + Vector3(0, 1, 0));
+    m_PlayerCamera->GetActor()->SetOrientation(TargetRotation);
 }
 
 void PlayerCharacter::Gravity() 
@@ -171,7 +174,6 @@ void PlayerCharacter::Gravity()
     else
     {
         JumpVelocity -= GravityValue * Time::GetDeltaTime();
-
         JumpVelocity = Math::Clamp(JumpVelocity, -3.5f, 3.5f);
         //Clamping the velocity so the player can't fall at mach jesus
     }
@@ -190,16 +192,16 @@ void PlayerCharacter::AimCheck()
     if (Input::GetAction(TEXT("StartAim")))
     {
         bIsAiming = true;
-        m_CharacterCamera->bIsAiming = true;
+        m_PlayerCamera->bIsAiming = true;
         CrosshairImage->SetIsActive(true);
-        m_CharacterCamera->StartAim();
+        m_PlayerCamera->StartAim();
     }
     else if (Input::GetAction(TEXT("StopAim")))
     {
         bIsAiming = false;
-        m_CharacterCamera->bIsAiming = false;
+        m_PlayerCamera->bIsAiming = false;
         CrosshairImage->SetIsActive(false);
-        m_CharacterCamera->StopAim();
+        m_PlayerCamera->StopAim();
     }
 
 }
@@ -221,8 +223,8 @@ void PlayerCharacter::FireWeapon()
 { 
     DebugLog::Log(LogType::Info, TEXT("Fire Gun"));
     RayCastHit Hit;
-
-    if (Physics::SphereCast(m_CharacterCamera->GetActor()->GetPosition(), 18.0f, m_CharacterCamera->GetActor()->GetDirection(), Hit, WeaponDistance, RayLayers))
+    //Using a spherecast to create 
+    if (Physics::SphereCast(m_PlayerCamera->GetActor()->GetPosition(), 18.0f, m_PlayerCamera->GetActor()->GetDirection(), Hit, WeaponDistance, RayLayers))
     {
         DEBUG_DRAW_SPHERE(BoundingSphere(Hit.Point, 18), Color::AliceBlue, 10.0f, true);
 
@@ -240,7 +242,7 @@ void PlayerCharacter::FireWeapon()
         }
     }
 
-    DEBUG_DRAW_SPHERE(BoundingSphere(m_CharacterCamera->GetActor()->GetPosition(), 18), Color::Blue, 10.0f, true);
+    DEBUG_DRAW_SPHERE(BoundingSphere(m_PlayerCamera->GetActor()->GetPosition(), 18), Color::Blue, 10.0f, true);
 }
 
 void PlayerCharacter::SwordAttack() 
@@ -262,7 +264,7 @@ void PlayerCharacter::SwordAttack()
     float AttackOffset = 100.0f;
     float HitSize = 80.0f;
     Vector3 Position = GetActor()->GetPosition() + GetActor()->GetDirection() * AttackOffset;
-    if (Physics::SphereCast(Position, HitSize, GetActor()->GetDirection(), SwordDistance, RayLayers)) //Bitwise Operation?
+    if (Physics::SphereCast(Position, HitSize, GetActor()->GetDirection(), Hit, SwordDistance, RayLayers)) //Bitwise Operation?
     {
         if (Hit.Collider)
         {
@@ -281,7 +283,15 @@ void PlayerCharacter::SwordAttack()
     }
     DEBUG_DRAW_SPHERE(BoundingSphere(Position, HitSize), Color::Blue, 10.0f, true);
 
-    //Update this to check for ALL entities that have been hit
+    //Update these to check for ALL entities that have been hit
+}
+
+void PlayerCharacter::PlayerAnimations()
+{
+    float Speed = m_CharacterController->GetVelocity().Length();
+    float n = Speed / CharacterMoveSpeed;
+    AnimSpeedParameter->Value = n;
+    AnimFallingParameter->Value = !m_CharacterController->IsGrounded();
 }
 
 

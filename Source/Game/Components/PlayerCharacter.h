@@ -25,6 +25,9 @@
 #include "../Gameplay/IInterface.h"
 #include "PlayerCamera.h"
 #include <Engine/UI/UIControl.h>
+#include "Engine/Animations/Graph/AnimGraph.h"
+#include "Engine/Level/Actors/AnimatedModel.h"
+
 
 
 #define PLAYER_HORIZONTAL_INPUT Input::GetAxisRaw(TEXT("Horizontal"))
@@ -53,12 +56,13 @@ DECLARE_SCRIPTING_TYPE(PlayerCharacter);
 
 public:
 
-    API_FIELD() ScriptingObjectReference<PlayerCamera> m_CharacterCamera = nullptr;
+    API_FIELD() ScriptingObjectReference<PlayerCamera> m_PlayerCamera = nullptr;
     API_FIELD() ScriptingObjectReference<CharacterController> m_CharacterController = nullptr;
+    API_FIELD() ScriptingObjectReference<AnimatedModel> Playermodel = nullptr;
     API_FIELD() ScriptingObjectReference<UIControl> CrosshairImage = nullptr;
     API_FIELD() float CharacterMoveSpeed = 400;
     API_FIELD() float GravityValue = -4;
-    API_FIELD() bool bIsAiming;
+    API_FIELD() bool bIsAiming = false;
     API_FIELD() float WeaponDistance = 5000;
     API_FIELD() float SwordDistance = 150;
     API_FIELD() float JumpForce = 5.0f;
@@ -67,6 +71,9 @@ public:
 
     Vector3 MovementVector = Vector3(0.0f);
     float JumpVelocity = 0.0f;
+
+    AnimGraphParameter* AnimSpeedParameter;
+    AnimGraphParameter* AnimFallingParameter;
 
 private:
 
@@ -77,6 +84,7 @@ private:
     void SwordAttack();
     void AimCheck();
     void AttackCheck();
+    void PlayerAnimations();
     float LerpC(float l1, float l2, float LerpSpeed);
 
     float yRotation = 0.0f;
