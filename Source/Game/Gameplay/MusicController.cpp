@@ -23,7 +23,7 @@ MusicController::MusicController(const SpawnParams& params)
 {
     // Enable ticking OnUpdate function
     _tickUpdate = true;
-    MusicVolume = 0.15f;
+    
     
 }
 

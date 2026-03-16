@@ -65,8 +65,8 @@
 			"ID": "485ec8db4e51ee69209c07863df78c87",
 			"TypeName": "Game.MusicController",
 			"ParentID": "d88da61e4cb3f5d4ae3f77b2fb187d4f",
-			"Source": "7fdd5ac6473f678208592f8e376b3ed5",
-			"MusicVolume": 0.0
+			"LevelMusic": "6466e4174ef77088fb4707b07b069fe8",
+			"Source": "7fdd5ac6473f678208592f8e376b3ed5"
 		},
 		{
 			"ID": "7fdd5ac6473f678208592f8e376b3ed5",
@@ -143,15 +143,14 @@
 					"Z": 0.0,
 					"W": 0.9659826755523682
 				}
-			}
+			},
+			"SlopeLimit": 35.0
 		},
 		{
 			"ID": "4ab74c654dfd18052a45caaab48c35f1",
 			"PrefabID": "19b753284e941e0a0e72da9d55e8bfae",
 			"PrefabObjectID": "970c9c6841012fbe58839b836cbc21b0",
-			"ParentID": "eec068e4422f755076e03fa9faaa89fa",
-			"m_PlayerCamera": "a0f59cda456fc60544ab45961adbdf11",
-			"CrosshairImage": "2b1ab2b1496762298e57bbb58ae76a7b"
+			"ParentID": "eec068e4422f755076e03fa9faaa89fa"
 		},
 		{
 			"ID": "845fe7e24d29e8ad98249d989ba11264",
@@ -394,7 +393,19 @@
 			"Buffer": {
 				"Entries": [
 					{
-						"Material": "00000000000000000000000000000000",
+						"Material": "026deee54614dcfeb53d5585589e0a4a",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					},
+					{
+						"Material": "5710825c43f3bf8daf2ecc992c7eeec5",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					},
+					{
+						"Material": "3ac6252f4a3d18d2fb1f72af492d6f12",
 						"ShadowsMode": 3,
 						"Visible": true,
 						"ReceiveDecals": true
@@ -406,19 +417,7 @@
 						"ReceiveDecals": true
 					},
 					{
-						"Material": "00000000000000000000000000000000",
-						"ShadowsMode": 3,
-						"Visible": true,
-						"ReceiveDecals": true
-					},
-					{
-						"Material": "00000000000000000000000000000000",
-						"ShadowsMode": 3,
-						"Visible": true,
-						"ReceiveDecals": true
-					},
-					{
-						"Material": "00000000000000000000000000000000",
+						"Material": "9fc7de3e497be9e3ccacf19cb7590c08",
 						"ShadowsMode": 3,
 						"Visible": true,
 						"ReceiveDecals": true
@@ -454,13 +453,13 @@
 						"ReceiveDecals": true
 					},
 					{
-						"Material": "00000000000000000000000000000000",
+						"Material": "026deee54614dcfeb53d5585589e0a4a",
 						"ShadowsMode": 3,
 						"Visible": true,
 						"ReceiveDecals": true
 					},
 					{
-						"Material": "00000000000000000000000000000000",
+						"Material": "3ac6252f4a3d18d2fb1f72af492d6f12",
 						"ShadowsMode": 3,
 						"Visible": true,
 						"ReceiveDecals": true

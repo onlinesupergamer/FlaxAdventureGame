@@ -177,9 +177,6 @@ void PlayerCharacter::Gravity()
         JumpVelocity = Math::Clamp(JumpVelocity, -3.5f, 3.5f);
         //Clamping the velocity so the player can't fall at mach jesus
     }
-    
-
-
 }
 
 void PlayerCharacter::AimCheck() 
@@ -196,6 +193,7 @@ void PlayerCharacter::AimCheck()
         CrosshairImage->SetIsActive(true);
         m_PlayerCamera->StartAim();
     }
+
     else if (Input::GetAction(TEXT("StopAim")))
     {
         bIsAiming = false;
@@ -212,6 +210,7 @@ void PlayerCharacter::AttackCheck()
     {
         FireWeapon();
     }
+    
     if (!bIsAiming && Input::GetAction(TEXT("StartFire")))
     {
         SwordAttack();
