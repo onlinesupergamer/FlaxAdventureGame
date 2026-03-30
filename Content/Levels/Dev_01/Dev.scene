@@ -32,9 +32,9 @@
 		},
 		{
 			"ID": "8e7e0b1542225373573ede8ec421a203",
-			"TypeName": "FlaxEngine.Camera",
+			"PrefabID": "994321cc4aa1e81927ba4fa57297c877",
+			"PrefabObjectID": "5305c900428031fa76da4099dc5fde41",
 			"ParentID": "7a533f4c487fc96c9b7b2190c6fd183e",
-			"Name": "Camera",
 			"Transform": {
 				"Translation": {
 					"X": 2393.296142578125,
@@ -45,38 +45,33 @@
 		},
 		{
 			"ID": "a0f59cda456fc60544ab45961adbdf11",
-			"TypeName": "Game.PlayerCamera",
-			"ParentID": "8e7e0b1542225373573ede8ec421a203",
-			"_CharacterCamera": "8e7e0b1542225373573ede8ec421a203"
+			"PrefabID": "994321cc4aa1e81927ba4fa57297c877",
+			"PrefabObjectID": "da71a76249a38798a3e1bf92f13e0984",
+			"ParentID": "8e7e0b1542225373573ede8ec421a203"
 		},
 		{
 			"ID": "82ea6b854e871ba294ed4faea37e2352",
-			"TypeName": "FlaxEngine.AudioListener",
-			"ParentID": "8e7e0b1542225373573ede8ec421a203",
-			"Name": "Audio Listener"
+			"PrefabID": "994321cc4aa1e81927ba4fa57297c877",
+			"PrefabObjectID": "e4acb0344913add121e417bb7f41b69f",
+			"ParentID": "8e7e0b1542225373573ede8ec421a203"
 		},
 		{
 			"ID": "d88da61e4cb3f5d4ae3f77b2fb187d4f",
-			"TypeName": "FlaxEngine.EmptyActor",
-			"ParentID": "7a533f4c487fc96c9b7b2190c6fd183e",
-			"Name": "MusicController"
+			"PrefabID": "5c6fa24840e74e623f6cc697e0f8a73c",
+			"PrefabObjectID": "fb02f1474cd6ba28c7053aa966c48bf7",
+			"ParentID": "7a533f4c487fc96c9b7b2190c6fd183e"
 		},
 		{
 			"ID": "485ec8db4e51ee69209c07863df78c87",
-			"TypeName": "Game.MusicController",
-			"ParentID": "d88da61e4cb3f5d4ae3f77b2fb187d4f",
-			"LevelMusic": "6466e4174ef77088fb4707b07b069fe8",
-			"Source": "7fdd5ac6473f678208592f8e376b3ed5"
+			"PrefabID": "5c6fa24840e74e623f6cc697e0f8a73c",
+			"PrefabObjectID": "c53f9a244bab64524201f6be223b1ca1",
+			"ParentID": "d88da61e4cb3f5d4ae3f77b2fb187d4f"
 		},
 		{
 			"ID": "7fdd5ac6473f678208592f8e376b3ed5",
-			"TypeName": "FlaxEngine.AudioSource",
-			"ParentID": "d88da61e4cb3f5d4ae3f77b2fb187d4f",
-			"Name": "AudioSource",
-			"Volume": 0.05000000074505806,
-			"Loop": true,
-			"PlayOnStart": true,
-			"AllowSpatialization": false
+			"PrefabID": "5c6fa24840e74e623f6cc697e0f8a73c",
+			"PrefabObjectID": "89ff0df647e55d71eb570283d95579f4",
+			"ParentID": "d88da61e4cb3f5d4ae3f77b2fb187d4f"
 		},
 		{
 			"ID": "505befa44029b4fe1cf153999ae557a4",
@@ -150,7 +145,10 @@
 			"ID": "4ab74c654dfd18052a45caaab48c35f1",
 			"PrefabID": "19b753284e941e0a0e72da9d55e8bfae",
 			"PrefabObjectID": "970c9c6841012fbe58839b836cbc21b0",
-			"ParentID": "eec068e4422f755076e03fa9faaa89fa"
+			"ParentID": "eec068e4422f755076e03fa9faaa89fa",
+			"m_PlayerCamera": "a0f59cda456fc60544ab45961adbdf11",
+			"CrosshairImage": "2b1ab2b1496762298e57bbb58ae76a7b",
+			"SwordDistance": 150.0
 		},
 		{
 			"ID": "845fe7e24d29e8ad98249d989ba11264",
@@ -166,9 +164,9 @@
 		},
 		{
 			"ID": "f7b3fae14c268f090c1c508072d78bc5",
-			"TypeName": "FlaxEngine.UICanvas",
+			"PrefabID": "d837c22b4bab5933e14e6ba15146f5f0",
+			"PrefabObjectID": "b362ef664bc66bbb12be5b994966536e",
 			"ParentID": "7a533f4c487fc96c9b7b2190c6fd183e",
-			"Name": "UICanvas",
 			"Transform": {
 				"Orientation": {
 					"X": 1.0,
@@ -181,122 +179,19 @@
 		},
 		{
 			"ID": "11aff0914ed78e3fdf317bad417eb8a1",
-			"TypeName": "FlaxEngine.UIControl",
+			"PrefabID": "d837c22b4bab5933e14e6ba15146f5f0",
+			"PrefabObjectID": "6189318c43965604c2a9fd83c588bdfa",
 			"ParentID": "f7b3fae14c268f090c1c508072d78bc5",
-			"Name": "Canvas Scalar",
-			"Transform": {
-				"Translation": {
-					"X": -2.0,
-					"Y": -2.0,
-					"Z": 0.0
-				}
-			},
-			"Control": "FlaxEngine.GUI.CanvasScaler",
 			"Data": {
-	"ResolutionCurve": {
-		"Keyframes": [
-			{
-				"Time": 0.0,
-				"Value": 0.0
-			},
-			{
-				"Time": 480.0,
-				"Value": 0.444
-			},
-			{
-				"Time": 720.0,
-				"Value": 0.666
-			},
-			{
-				"Time": 1080.0,
-				"Value": 1.0
-			},
-			{
-				"Time": 8640.0,
-				"Value": 8.0
-			}
-		]
-	},
-	"DpiCurve": {
-		"Keyframes": [
-			{
-				"Time": 1.0,
-				"Value": 1.0
-			},
-			{
-				"Time": 96.0,
-				"Value": 1.0
-			},
-			{
-				"Time": 200.0,
-				"Value": 2.0
-			},
-			{
-				"Time": 400.0,
-				"Value": 4.0
-			}
-		]
-	},
-	"Scaling": 0,
-	"ScaleFactor": 1.0,
-	"PhysicalUnit": 3,
-	"PhysicalUnitSize": 1.0,
-	"ResolutionMode": 0,
-	"ResolutionMin": {
-		"X": 1.0,
-		"Y": 1.0
-	},
-	"ResolutionMax": {
-		"X": 7680.0,
-		"Y": 4320.0
-	},
-	"ClipChildren": true,
-	"CullChildren": true,
-	"AnchorMin": {
-		"X": 0.0,
-		"Y": 0.0
-	},
-	"AnchorMax": {
-		"X": 1.0,
-		"Y": 1.0
-	},
-	"Offsets": {
-		"Left": -2.0,
-		"Right": 2.0,
-		"Top": -2.0,
-		"Bottom": 2.0
-	},
-	"Scale": {
-		"X": 1.0,
-		"Y": 1.0
-	},
-	"Pivot": {
-		"X": 0.5,
-		"Y": 0.5
-	},
-	"Shear": {
-		"X": 0.0,
-		"Y": 0.0
-	},
-	"Rotation": 0.0,
-	"BackgroundColor": {
-		"R": 0.0,
-		"G": 0.0,
-		"B": 0.0,
-		"A": 0.0
-	},
-	"BackgroundBrush": null,
-	"Enabled": true,
-	"Visible": true,
-	"AutoFocus": false
+	"ResolutionCurve": {},
+	"DpiCurve": {}
 }
 		},
 		{
 			"ID": "2b1ab2b1496762298e57bbb58ae76a7b",
-			"TypeName": "FlaxEngine.UIControl",
+			"PrefabID": "d837c22b4bab5933e14e6ba15146f5f0",
+			"PrefabObjectID": "516d95c740ef1b09d4e888bcf015b1f5",
 			"ParentID": "f7b3fae14c268f090c1c508072d78bc5",
-			"IsActive": false,
-			"Name": "Crosshair",
 			"Transform": {
 				"Translation": {
 					"X": 944.0,
@@ -304,78 +199,7 @@
 					"Z": 0.0
 				}
 			},
-			"Control": "FlaxEngine.GUI.Image",
-			"Data": {
-	"Brush": null,
-	"Margin": {
-		"Left": 0.0,
-		"Right": 0.0,
-		"Top": 0.0,
-		"Bottom": 0.0
-	},
-	"Color": {
-		"R": 1.0,
-		"G": 1.0,
-		"B": 1.0,
-		"A": 1.0
-	},
-	"MouseOverColor": {
-		"R": 1.0,
-		"G": 1.0,
-		"B": 1.0,
-		"A": 1.0
-	},
-	"DisabledTint": {
-		"R": 0.5019608,
-		"G": 0.5019608,
-		"B": 0.5019608,
-		"A": 1.0
-	},
-	"KeepAspectRatio": true,
-	"ClipChildren": true,
-	"CullChildren": true,
-	"AnchorMin": {
-		"X": 0.5,
-		"Y": 0.5
-	},
-	"AnchorMax": {
-		"X": 0.5,
-		"Y": 0.5
-	},
-	"Offsets": {
-		"Left": -16.0,
-		"Right": 32.0,
-		"Top": -16.0,
-		"Bottom": 32.0
-	},
-	"Scale": {
-		"X": 1.0,
-		"Y": 1.0
-	},
-	"Pivot": {
-		"X": 0.5,
-		"Y": 0.5
-	},
-	"Shear": {
-		"X": 0.0,
-		"Y": 0.0
-	},
-	"Rotation": 0.0,
-	"BackgroundColor": {
-		"R": 1.0,
-		"G": 1.0,
-		"B": 1.0,
-		"A": 1.0
-	},
-	"BackgroundBrush": {
-		"$type": "FlaxEngine.GUI.TextureBrush, FlaxEngine.CSharp",
-		"Texture": "aeb69ffa4cf757d0191cf6a78230d3fc",
-		"Filter": 1
-	},
-	"Enabled": true,
-	"Visible": false,
-	"AutoFocus": false
-}
+			"Data": {}
 		},
 		{
 			"ID": "33becf984cfdd2b3ba6ccd97710de0a0",

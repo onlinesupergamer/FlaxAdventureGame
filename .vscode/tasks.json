@@ -7,12 +7,12 @@
 				"kind": "build",
 				"isDefault": false
 			},
-			"command": "..\\..\\..\\..\\..\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Tools\\Flax.Build",
+			"command": "C:\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Tools\\Flax.Build",
 			"args": [
 				"-build",
 				"-log",
 				"-mutex",
-				"\\\"-workspace=C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame\\\"",
+				"\\\"-workspace=D:\\GitHub\\FlaxAdventureGame\\\"",
 				"-arch=x64",
 				"-configuration=Debug",
 				"-platform=Windows",
@@ -20,7 +20,7 @@
 			],
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame"
+				"cwd": "D:\\GitHub\\FlaxAdventureGame"
 			}
 		},
 		{
@@ -29,12 +29,12 @@
 				"kind": "build",
 				"isDefault": true
 			},
-			"command": "..\\..\\..\\..\\..\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Tools\\Flax.Build",
+			"command": "C:\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Tools\\Flax.Build",
 			"args": [
 				"-build",
 				"-log",
 				"-mutex",
-				"\\\"-workspace=C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame\\\"",
+				"\\\"-workspace=D:\\GitHub\\FlaxAdventureGame\\\"",
 				"-arch=x64",
 				"-configuration=Development",
 				"-platform=Windows",
@@ -42,7 +42,7 @@
 			],
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame"
+				"cwd": "D:\\GitHub\\FlaxAdventureGame"
 			}
 		},
 		{
@@ -51,12 +51,12 @@
 				"kind": "build",
 				"isDefault": false
 			},
-			"command": "..\\..\\..\\..\\..\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Tools\\Flax.Build",
+			"command": "C:\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Tools\\Flax.Build",
 			"args": [
 				"-build",
 				"-log",
 				"-mutex",
-				"\\\"-workspace=C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame\\\"",
+				"\\\"-workspace=D:\\GitHub\\FlaxAdventureGame\\\"",
 				"-arch=x64",
 				"-configuration=Release",
 				"-platform=Windows",
@@ -64,7 +64,7 @@
 			],
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame"
+				"cwd": "D:\\GitHub\\FlaxAdventureGame"
 			}
 		},
 		{
@@ -73,12 +73,12 @@
 				"kind": "build",
 				"isDefault": false
 			},
-			"command": "..\\..\\..\\..\\..\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Tools\\Flax.Build",
+			"command": "C:\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Tools\\Flax.Build",
 			"args": [
 				"-build",
 				"-log",
 				"-mutex",
-				"\\\"-workspace=C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame\\\"",
+				"\\\"-workspace=D:\\GitHub\\FlaxAdventureGame\\\"",
 				"-arch=x64",
 				"-configuration=Debug",
 				"-platform=Windows",
@@ -86,7 +86,7 @@
 			],
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame"
+				"cwd": "D:\\GitHub\\FlaxAdventureGame"
 			}
 		},
 		{
@@ -95,12 +95,12 @@
 				"kind": "build",
 				"isDefault": false
 			},
-			"command": "..\\..\\..\\..\\..\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Tools\\Flax.Build",
+			"command": "C:\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Tools\\Flax.Build",
 			"args": [
 				"-build",
 				"-log",
 				"-mutex",
-				"\\\"-workspace=C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame\\\"",
+				"\\\"-workspace=D:\\GitHub\\FlaxAdventureGame\\\"",
 				"-arch=x64",
 				"-configuration=Development",
 				"-platform=Windows",
@@ -108,7 +108,7 @@
 			],
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame"
+				"cwd": "D:\\GitHub\\FlaxAdventureGame"
 			}
 		},
 		{
@@ -117,12 +117,12 @@
 				"kind": "build",
 				"isDefault": false
 			},
-			"command": "..\\..\\..\\..\\..\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Tools\\Flax.Build",
+			"command": "C:\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Tools\\Flax.Build",
 			"args": [
 				"-build",
 				"-log",
 				"-mutex",
-				"\\\"-workspace=C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame\\\"",
+				"\\\"-workspace=D:\\GitHub\\FlaxAdventureGame\\\"",
 				"-arch=x64",
 				"-configuration=Release",
 				"-platform=Windows",
@@ -130,7 +130,7 @@
 			],
 			"type": "shell",
 			"options": {
-				"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame"
+				"cwd": "D:\\GitHub\\FlaxAdventureGame"
 			}
 		}
 	]

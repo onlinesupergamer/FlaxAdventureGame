@@ -1,0 +1,25 @@
+{
+	"ID": "994321cc4aa1e81927ba4fa57297c877",
+	"TypeName": "FlaxEngine.Prefab",
+	"EngineBuild": 6802,
+	"Data": [
+	{
+		"ID": "5305c900428031fa76da4099dc5fde41",
+		"TypeName": "FlaxEngine.Camera",
+		"ParentID": "00000000000000000000000000000000",
+		"Name": "Camera"
+	},
+	{
+		"ID": "da71a76249a38798a3e1bf92f13e0984",
+		"TypeName": "Game.PlayerCamera",
+		"ParentID": "5305c900428031fa76da4099dc5fde41",
+		"_CharacterCamera": "5305c900428031fa76da4099dc5fde41"
+	},
+	{
+		"ID": "e4acb0344913add121e417bb7f41b69f",
+		"TypeName": "FlaxEngine.AudioListener",
+		"ParentID": "5305c900428031fa76da4099dc5fde41",
+		"Name": "Audio Listener"
+	}
+]
+}

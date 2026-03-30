@@ -1,0 +1,172 @@
+{
+	"ID": "77f89f6844a86098fb78bc8ccfc212e1",
+	"TypeName": "FlaxEngine.SceneAsset",
+	"EngineBuild": 6802,
+	"Data": [
+		{
+			"ID": "77f89f6844a86098fb78bc8ccfc212e1",
+			"TypeName": "FlaxEngine.Scene",
+			"LightmapSettings": {
+				"IndirectLightingIntensity": 1.0,
+				"GlobalObjectsScale": 1.0,
+				"ChartsPadding": 3,
+				"AtlasSize": 1024,
+				"BounceCount": 1,
+				"CompressLightmaps": true,
+				"UseGeometryWithNoMaterials": true,
+				"Quality": 10
+			}
+		},
+		{
+			"ID": "1a94899f4e42abf542875a9baff10210",
+			"TypeName": "FlaxEngine.Sky",
+			"ParentID": "77f89f6844a86098fb78bc8ccfc212e1",
+			"Name": "Sky",
+			"Transform": {
+				"Translation": {
+					"X": 40.0,
+					"Y": 150.0,
+					"Z": 0.0
+				}
+			}
+		},
+		{
+			"ID": "417f71b64feb7058a958fd997026c144",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "77f89f6844a86098fb78bc8ccfc212e1",
+			"Name": "Forest_Test",
+			"Model": "adabdff147e76e547bf83fa96d8d2fea",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "00000000000000000000000000000000",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					},
+					{
+						"Material": "00000000000000000000000000000000",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "bd78fe024ffc394be0d099be83b9a18a",
+			"TypeName": "FlaxEngine.MeshCollider",
+			"ParentID": "417f71b64feb7058a958fd997026c144",
+			"Name": "MeshCollider",
+			"CollisionData": "4f37378045c3f3079389848a4c6617b0"
+		},
+		{
+			"ID": "27c9fe3b411e61d69dc26d8052443f9a",
+			"PrefabID": "994321cc4aa1e81927ba4fa57297c877",
+			"PrefabObjectID": "5305c900428031fa76da4099dc5fde41",
+			"ParentID": "77f89f6844a86098fb78bc8ccfc212e1",
+			"Transform": {
+				"Translation": {
+					"X": 399.652587890625,
+					"Y": 360.5936279296875,
+					"Z": -133.31121826171875
+				}
+			}
+		},
+		{
+			"ID": "bb9728074ed906d3a96360a56436803f",
+			"PrefabID": "994321cc4aa1e81927ba4fa57297c877",
+			"PrefabObjectID": "da71a76249a38798a3e1bf92f13e0984",
+			"ParentID": "27c9fe3b411e61d69dc26d8052443f9a"
+		},
+		{
+			"ID": "620478b8437c0efda6880797f8c66645",
+			"PrefabID": "994321cc4aa1e81927ba4fa57297c877",
+			"PrefabObjectID": "e4acb0344913add121e417bb7f41b69f",
+			"ParentID": "27c9fe3b411e61d69dc26d8052443f9a"
+		},
+		{
+			"ID": "40b4023947366ccfe5f342ac066bbd9f",
+			"PrefabID": "19b753284e941e0a0e72da9d55e8bfae",
+			"PrefabObjectID": "5e9a737d454e22940e54f081c54f6d22",
+			"ParentID": "77f89f6844a86098fb78bc8ccfc212e1",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 85.97677612304688,
+					"Z": 0.0
+				}
+			}
+		},
+		{
+			"ID": "53123e6a43e77f7352b59d8d208ba3a0",
+			"PrefabID": "19b753284e941e0a0e72da9d55e8bfae",
+			"PrefabObjectID": "970c9c6841012fbe58839b836cbc21b0",
+			"ParentID": "40b4023947366ccfe5f342ac066bbd9f",
+			"m_PlayerCamera": "bb9728074ed906d3a96360a56436803f",
+			"CrosshairImage": "1063fabb44d1bfdbc52f558297adcdb5"
+		},
+		{
+			"ID": "823d902946416777a6b7c896dd122ee1",
+			"PrefabID": "19b753284e941e0a0e72da9d55e8bfae",
+			"PrefabObjectID": "6e9a19fd49a603dbdb8857b3fad60a9a",
+			"ParentID": "40b4023947366ccfe5f342ac066bbd9f",
+			"Buffer": {
+				"Entries": [
+					{},
+					{}
+				]
+			}
+		},
+		{
+			"ID": "b17cb83744f7698df10958b796f2149f",
+			"PrefabID": "d837c22b4bab5933e14e6ba15146f5f0",
+			"PrefabObjectID": "b362ef664bc66bbb12be5b994966536e",
+			"ParentID": "77f89f6844a86098fb78bc8ccfc212e1",
+			"V": {}
+		},
+		{
+			"ID": "c505b99e4512689b5e79c0b0f065f2b1",
+			"PrefabID": "d837c22b4bab5933e14e6ba15146f5f0",
+			"PrefabObjectID": "6189318c43965604c2a9fd83c588bdfa",
+			"ParentID": "b17cb83744f7698df10958b796f2149f",
+			"Data": {
+	"ResolutionCurve": {},
+	"DpiCurve": {}
+}
+		},
+		{
+			"ID": "1063fabb44d1bfdbc52f558297adcdb5",
+			"PrefabID": "d837c22b4bab5933e14e6ba15146f5f0",
+			"PrefabObjectID": "516d95c740ef1b09d4e888bcf015b1f5",
+			"ParentID": "b17cb83744f7698df10958b796f2149f",
+			"Transform": {
+				"Translation": {
+					"X": 944.0,
+					"Y": 524.0,
+					"Z": 0.0
+				}
+			},
+			"Data": {}
+		},
+		{
+			"ID": "bc72bf3d4f11c3723a01d8a5acc657ee",
+			"PrefabID": "5c6fa24840e74e623f6cc697e0f8a73c",
+			"PrefabObjectID": "fb02f1474cd6ba28c7053aa966c48bf7",
+			"ParentID": "77f89f6844a86098fb78bc8ccfc212e1"
+		},
+		{
+			"ID": "19710f294a30d54dd05c32b64091c686",
+			"PrefabID": "5c6fa24840e74e623f6cc697e0f8a73c",
+			"PrefabObjectID": "c53f9a244bab64524201f6be223b1ca1",
+			"ParentID": "bc72bf3d4f11c3723a01d8a5acc657ee",
+			"MusicVolume": 0.05999999865889549
+		},
+		{
+			"ID": "36839c2f4b58bc41d74a00a1fdd92de3",
+			"PrefabID": "5c6fa24840e74e623f6cc697e0f8a73c",
+			"PrefabObjectID": "89ff0df647e55d71eb570283d95579f4",
+			"ParentID": "bc72bf3d4f11c3723a01d8a5acc657ee"
+		}
+	]
+}

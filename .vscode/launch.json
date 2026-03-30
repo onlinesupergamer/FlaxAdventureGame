@@ -6,13 +6,13 @@
 			"name": "Advent|Editor.Windows.Debug|x64 (C++)",
 			"request": "launch",
 			"preLaunchTask": "Advent|Editor.Windows.Debug|x64",
-			"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame",
+			"cwd": "D:\\GitHub\\FlaxAdventureGame",
 			"stopAtEntry": false,
 			"externalConsole": true,
 			"program": "C:\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Editor\\Win64\\Debug\\FlaxEditor.exe",
 			"args": [
 				"-project",
-				"C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame",
+				"D:\\GitHub\\FlaxAdventureGame",
 				"-skipCompile"
 			],
 			"visualizerFile": "C:\\Program Files (x86)\\Flax\\Flax_1.11\\Source\\flax.natvis"
@@ -22,13 +22,13 @@
 			"name": "Advent|Editor.Windows.Development|x64 (C++)",
 			"request": "launch",
 			"preLaunchTask": "Advent|Editor.Windows.Development|x64",
-			"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame",
+			"cwd": "D:\\GitHub\\FlaxAdventureGame",
 			"stopAtEntry": false,
 			"externalConsole": true,
 			"program": "C:\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Editor\\Win64\\Development\\FlaxEditor.exe",
 			"args": [
 				"-project",
-				"C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame",
+				"D:\\GitHub\\FlaxAdventureGame",
 				"-skipCompile"
 			],
 			"visualizerFile": "C:\\Program Files (x86)\\Flax\\Flax_1.11\\Source\\flax.natvis"
@@ -38,13 +38,13 @@
 			"name": "Advent|Editor.Windows.Release|x64 (C++)",
 			"request": "launch",
 			"preLaunchTask": "Advent|Editor.Windows.Release|x64",
-			"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame",
+			"cwd": "D:\\GitHub\\FlaxAdventureGame",
 			"stopAtEntry": false,
 			"externalConsole": true,
 			"program": "C:\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Editor\\Win64\\Release\\FlaxEditor.exe",
 			"args": [
 				"-project",
-				"C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame",
+				"D:\\GitHub\\FlaxAdventureGame",
 				"-skipCompile"
 			],
 			"visualizerFile": "C:\\Program Files (x86)\\Flax\\Flax_1.11\\Source\\flax.natvis"
@@ -54,10 +54,10 @@
 			"name": "Advent|Game.Windows.Debug|x64 (C++)",
 			"request": "launch",
 			"preLaunchTask": "Advent|Game.Windows.Debug|x64",
-			"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame",
+			"cwd": "D:\\GitHub\\FlaxAdventureGame",
 			"stopAtEntry": false,
 			"externalConsole": true,
-			"program": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame\\Binaries\\GameTarget\\Windows\\x64\\Debug\\Advent.exe",
+			"program": "D:\\GitHub\\FlaxAdventureGame\\Binaries\\GameTarget\\Windows\\x64\\Debug\\Advent.exe",
 			"args": [
 			],
 			"visualizerFile": "C:\\Program Files (x86)\\Flax\\Flax_1.11\\Source\\flax.natvis"
@@ -67,10 +67,10 @@
 			"name": "Advent|Game.Windows.Development|x64 (C++)",
 			"request": "launch",
 			"preLaunchTask": "Advent|Game.Windows.Development|x64",
-			"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame",
+			"cwd": "D:\\GitHub\\FlaxAdventureGame",
 			"stopAtEntry": false,
 			"externalConsole": true,
-			"program": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame\\Binaries\\GameTarget\\Windows\\x64\\Development\\Advent.exe",
+			"program": "D:\\GitHub\\FlaxAdventureGame\\Binaries\\GameTarget\\Windows\\x64\\Development\\Advent.exe",
 			"args": [
 			],
 			"visualizerFile": "C:\\Program Files (x86)\\Flax\\Flax_1.11\\Source\\flax.natvis"
@@ -80,10 +80,10 @@
 			"name": "Advent|Game.Windows.Release|x64 (C++)",
 			"request": "launch",
 			"preLaunchTask": "Advent|Game.Windows.Release|x64",
-			"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame",
+			"cwd": "D:\\GitHub\\FlaxAdventureGame",
 			"stopAtEntry": false,
 			"externalConsole": true,
-			"program": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame\\Binaries\\GameTarget\\Windows\\x64\\Release\\Advent.exe",
+			"program": "D:\\GitHub\\FlaxAdventureGame\\Binaries\\GameTarget\\Windows\\x64\\Release\\Advent.exe",
 			"args": [
 			],
 			"visualizerFile": "C:\\Program Files (x86)\\Flax\\Flax_1.11\\Source\\flax.natvis"
@@ -93,11 +93,11 @@
 			"name": "Advent|Editor.Windows.Debug|x64 (C#)",
 			"request": "launch",
 			"preLaunchTask": "Advent|Editor.Windows.Debug|x64",
-			"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame",
+			"cwd": "D:\\GitHub\\FlaxAdventureGame",
 			"program": "C:\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Editor\\Win64\\Debug\\FlaxEditor",
 			"args": [
 				"-project",
-				"C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame",
+				"D:\\GitHub\\FlaxAdventureGame",
 				"-skipCompile"
 			],
 			"stopAtEntry": false,
@@ -108,11 +108,11 @@
 			"name": "Advent|Editor.Windows.Development|x64 (C#)",
 			"request": "launch",
 			"preLaunchTask": "Advent|Editor.Windows.Development|x64",
-			"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame",
+			"cwd": "D:\\GitHub\\FlaxAdventureGame",
 			"program": "C:\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Editor\\Win64\\Development\\FlaxEditor",
 			"args": [
 				"-project",
-				"C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame",
+				"D:\\GitHub\\FlaxAdventureGame",
 				"-skipCompile"
 			],
 			"stopAtEntry": false,
@@ -123,11 +123,11 @@
 			"name": "Advent|Editor.Windows.Release|x64 (C#)",
 			"request": "launch",
 			"preLaunchTask": "Advent|Editor.Windows.Release|x64",
-			"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame",
+			"cwd": "D:\\GitHub\\FlaxAdventureGame",
 			"program": "C:\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Editor\\Win64\\Release\\FlaxEditor",
 			"args": [
 				"-project",
-				"C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame",
+				"D:\\GitHub\\FlaxAdventureGame",
 				"-skipCompile"
 			],
 			"stopAtEntry": false,
@@ -138,11 +138,11 @@
 			"name": "Advent|Game.Windows.Debug|x64 (C#)",
 			"request": "launch",
 			"preLaunchTask": "Advent|Game.Windows.Debug|x64",
-			"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame",
+			"cwd": "D:\\GitHub\\FlaxAdventureGame",
 			"program": "C:\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Editor\\Win64\\Debug\\FlaxEditor",
 			"args": [
 				"-project",
-				"C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame",
+				"D:\\GitHub\\FlaxAdventureGame",
 				"-skipCompile"
 			],
 			"stopAtEntry": false,
@@ -153,11 +153,11 @@
 			"name": "Advent|Game.Windows.Development|x64 (C#)",
 			"request": "launch",
 			"preLaunchTask": "Advent|Game.Windows.Development|x64",
-			"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame",
+			"cwd": "D:\\GitHub\\FlaxAdventureGame",
 			"program": "C:\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Editor\\Win64\\Development\\FlaxEditor",
 			"args": [
 				"-project",
-				"C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame",
+				"D:\\GitHub\\FlaxAdventureGame",
 				"-skipCompile"
 			],
 			"stopAtEntry": false,
@@ -168,11 +168,11 @@
 			"name": "Advent|Game.Windows.Release|x64 (C#)",
 			"request": "launch",
 			"preLaunchTask": "Advent|Game.Windows.Release|x64",
-			"cwd": "C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame",
+			"cwd": "D:\\GitHub\\FlaxAdventureGame",
 			"program": "C:\\Program Files (x86)\\Flax\\Flax_1.11\\Binaries\\Editor\\Win64\\Release\\FlaxEditor",
 			"args": [
 				"-project",
-				"C:\\Users\\Benny\\Documents\\GitHub\\FlaxAdventureGame",
+				"D:\\GitHub\\FlaxAdventureGame",
 				"-skipCompile"
 			],
 			"stopAtEntry": false,

@@ -49,8 +49,11 @@ void PlayerCharacter::OnEnable()
 
     if(Playermodel != ((void*)0))
     {
-        AnimSpeedParameter = Playermodel.As<AnimatedModel>()->GetParameter(TEXT("Speed"));
-        AnimFallingParameter = Playermodel.As<AnimatedModel>()->GetParameter(TEXT("bIsFalling"));
+        String str_Speed = String::Format(TEXT("Speed"));
+        String str_Falling = String::Format(TEXT("bIsFalling"));
+        
+        AnimSpeedParameter = Playermodel.As<AnimatedModel>()->GetParameter(*str_Speed);
+        AnimFallingParameter = Playermodel.As<AnimatedModel>()->GetParameter(*str_Falling);
     }
 
 }

@@ -1,0 +1,31 @@
+{
+	"ID": "5c6fa24840e74e623f6cc697e0f8a73c",
+	"TypeName": "FlaxEngine.Prefab",
+	"EngineBuild": 6802,
+	"Data": [
+	{
+		"ID": "fb02f1474cd6ba28c7053aa966c48bf7",
+		"TypeName": "FlaxEngine.EmptyActor",
+		"ParentID": "00000000000000000000000000000000",
+		"Name": "MusicController"
+	},
+	{
+		"ID": "c53f9a244bab64524201f6be223b1ca1",
+		"TypeName": "Game.MusicController",
+		"ParentID": "fb02f1474cd6ba28c7053aa966c48bf7",
+		"LevelMusic": "6466e4174ef77088fb4707b07b069fe8",
+		"Source": "89ff0df647e55d71eb570283d95579f4",
+		"MusicVolume": 0.009999999776482582
+	},
+	{
+		"ID": "89ff0df647e55d71eb570283d95579f4",
+		"TypeName": "FlaxEngine.AudioSource",
+		"ParentID": "fb02f1474cd6ba28c7053aa966c48bf7",
+		"Name": "AudioSource",
+		"Volume": 0.05000000074505806,
+		"Loop": true,
+		"PlayOnStart": true,
+		"AllowSpatialization": false
+	}
+]
+}

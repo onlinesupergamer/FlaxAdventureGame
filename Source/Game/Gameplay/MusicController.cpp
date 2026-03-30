@@ -32,7 +32,11 @@ void MusicController::OnEnable()
     if (Source) 
     {
         SetupMusic();
-        PlayMusic();  
+
+        if(bPlayMusic)
+        {
+            PlayMusic();  
+        }
     }
 }
 
