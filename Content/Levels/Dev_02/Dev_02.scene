@@ -49,6 +49,18 @@
 						"ShadowsMode": 3,
 						"Visible": true,
 						"ReceiveDecals": true
+					},
+					{
+						"Material": "60868abb474f41798b73bf81a74c317c",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					},
+					{
+						"Material": "00000000000000000000000000000000",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
 					}
 				]
 			}
@@ -77,7 +89,9 @@
 			"ID": "bb9728074ed906d3a96360a56436803f",
 			"PrefabID": "994321cc4aa1e81927ba4fa57297c877",
 			"PrefabObjectID": "da71a76249a38798a3e1bf92f13e0984",
-			"ParentID": "27c9fe3b411e61d69dc26d8052443f9a"
+			"ParentID": "27c9fe3b411e61d69dc26d8052443f9a",
+			"Height": -55.0,
+			"Distance": 325.0
 		},
 		{
 			"ID": "620478b8437c0efda6880797f8c66645",
@@ -93,10 +107,12 @@
 			"Transform": {
 				"Translation": {
 					"X": 0.0,
-					"Y": 85.97677612304688,
-					"Z": 0.0
+					"Y": 106.18971252441406,
+					"Z": 211.1318359375
 				}
-			}
+			},
+			"SlopeLimit": 40.0,
+			"NonWalkableMode": 1
 		},
 		{
 			"ID": "53123e6a43e77f7352b59d8d208ba3a0",
@@ -160,7 +176,8 @@
 			"PrefabID": "5c6fa24840e74e623f6cc697e0f8a73c",
 			"PrefabObjectID": "c53f9a244bab64524201f6be223b1ca1",
 			"ParentID": "bc72bf3d4f11c3723a01d8a5acc657ee",
-			"MusicVolume": 0.05999999865889549
+			"LevelMusic": "40feff394c106992deef9886dc439a1e",
+			"MusicVolume": 0.15000000596046448
 		},
 		{
 			"ID": "36839c2f4b58bc41d74a00a1fdd92de3",

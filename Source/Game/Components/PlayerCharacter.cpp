@@ -47,10 +47,11 @@ void PlayerCharacter::OnEnable()
     Screen::SetCursorVisible(false);
     CrosshairImage->SetIsActive(false);
 
-    if(Playermodel != ((void*)0))
+
+    if(Playermodel != nullptr)
     {
-        String str_Speed = String::Format(TEXT("Speed"));
-        String str_Falling = String::Format(TEXT("bIsFalling"));
+        const String str_Speed = String::Format(TEXT("Speed"));
+        const String str_Falling = String::Format(TEXT("bIsFalling"));
         
         AnimSpeedParameter = Playermodel.As<AnimatedModel>()->GetParameter(*str_Speed);
         AnimFallingParameter = Playermodel.As<AnimatedModel>()->GetParameter(*str_Falling);
