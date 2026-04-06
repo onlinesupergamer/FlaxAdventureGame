@@ -176,14 +176,27 @@
 			"PrefabID": "5c6fa24840e74e623f6cc697e0f8a73c",
 			"PrefabObjectID": "c53f9a244bab64524201f6be223b1ca1",
 			"ParentID": "bc72bf3d4f11c3723a01d8a5acc657ee",
-			"LevelMusic": "40feff394c106992deef9886dc439a1e",
-			"MusicVolume": 0.15000000596046448
+			"MusicVolume": 0.05000000074505806,
+			"bPlayMusic": true
 		},
 		{
 			"ID": "36839c2f4b58bc41d74a00a1fdd92de3",
 			"PrefabID": "5c6fa24840e74e623f6cc697e0f8a73c",
 			"PrefabObjectID": "89ff0df647e55d71eb570283d95579f4",
 			"ParentID": "bc72bf3d4f11c3723a01d8a5acc657ee"
+		},
+		{
+			"ID": "8cd3e20e4f0fca9717d40b8a1ba79def",
+			"TypeName": "FlaxEngine.ExponentialHeightFog",
+			"ParentID": "77f89f6844a86098fb78bc8ccfc212e1",
+			"Name": "ExponentialHeightFog",
+			"FogDensity": 0.10000000149011612,
+			"FogInscatteringColor": {
+				"R": 0.45340561866760254,
+				"G": 0.7579948306083679,
+				"B": 1.0,
+				"A": 1.0
+			}
 		}
 	]
 }

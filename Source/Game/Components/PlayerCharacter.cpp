@@ -15,6 +15,7 @@
 **																			**
 *****************************************************************************/
 
+
 #include "PlayerCharacter.h"
 #include "Engine/Input/Input.h"
 #include "Engine/Debug/DebugLog.h"
@@ -29,14 +30,9 @@
 PlayerCharacter::PlayerCharacter(const SpawnParams& params)
     : Script(params)
 {
-    
     _tickUpdate = true;
     _tickFixedUpdate = true;
     _tickLateUpdate = true;
-
-    CharacterMoveSpeed = 300.0f;
-    GravityValue = -4.0f;
-    bIsAiming = false;
 
     
 }
@@ -48,13 +44,13 @@ void PlayerCharacter::OnEnable()
     CrosshairImage->SetIsActive(false);
 
 
-    if(Playermodel != nullptr)
+    if(Playermodel)
     {
-        const String str_Speed = String::Format(TEXT("Speed"));
-        const String str_Falling = String::Format(TEXT("bIsFalling"));
+        const String m_Speed = TEXT("Speed");
+        const String m_Falling = TEXT("bIsFalling");
         
-        AnimSpeedParameter = Playermodel.As<AnimatedModel>()->GetParameter(*str_Speed);
-        AnimFallingParameter = Playermodel.As<AnimatedModel>()->GetParameter(*str_Falling);
+        AnimSpeedParameter = Playermodel.As<AnimatedModel>()->GetParameter(m_Speed);
+        AnimFallingParameter = Playermodel.As<AnimatedModel>()->GetParameter(m_Falling);
     }
 
 }
@@ -80,7 +76,6 @@ void PlayerCharacter::OnFixedUpdate()
 
 void PlayerCharacter::OnLateUpdate() 
 {
-    //Should be after the main update loop
     CameraHandler();
 }
 
@@ -156,7 +151,7 @@ void PlayerCharacter::CameraHandler()
     Transform Target = GetActor()->GetPosition();
     Target.Translation.Y = Target.Translation.Y + PlayerVerticalOffset;
     Quaternion TargetRotation;
-    xRotation = Math::Clamp(xRotation + PLAYER_ROTATION_INPUT_V, (float)-180, (float)250);
+    xRotation = Math::Clamp(xRotation + PLAYER_ROTATION_INPUT_V, -180.0f, 250.0f);
     yRotation += PLAYER_ROTATION_INPUT_H;
     TargetRotation = Quaternion::Euler(xRotation * (CameraLookSpeed * 1.0f), yRotation * (CameraLookSpeed * 1.0f), 0);
     m_PlayerCamera->GetActor()->SetPosition(Target.Translation - TargetRotation * m_PlayerCamera->Offset + Vector3(0, 1, 0));
@@ -185,11 +180,6 @@ void PlayerCharacter::Gravity()
 
 void PlayerCharacter::AimCheck() 
 {
-    /*
-        May be possible to simplify this with the AttackCheck function
-        To clean this up
-    */
-    
     if (Input::GetAction(TEXT("StartAim")))
     {
         bIsAiming = true;
@@ -226,7 +216,8 @@ void PlayerCharacter::FireWeapon()
 { 
     DebugLog::Log(LogType::Info, TEXT("Fire Gun"));
     RayCastHit Hit;
-    //Using a spherecast to create 
+    //Using a spherecast to create depth since using a normal raycast was too precise and was annoying to aim
+
     if (Physics::SphereCast(m_PlayerCamera->GetActor()->GetPosition(), 18.0f, m_PlayerCamera->GetActor()->GetDirection(), Hit, WeaponDistance, RayLayers))
     {
         DEBUG_DRAW_SPHERE(BoundingSphere(Hit.Point, 18), Color::AliceBlue, 10.0f, true);
@@ -250,24 +241,14 @@ void PlayerCharacter::FireWeapon()
 
 void PlayerCharacter::SwordAttack() 
 {
-    /*
-        Simple way of doing damage, but there are possible issues 
-        with being able to do damage through walls
-        Might be possible to check line of sight with a raycast for each object that
-        was hit to see if it's blocked by a wall and if so, don't do damage to that entity
-
-        EDIT: The fuck was i smoking when i wrote that comment? That's not even what should be done here at ALL
-
-    */
-        ////////////////////////////////////////////////////////////////////////////
-        ////////////////////////////////////////////////////////////////////////////
+    //This is a bit repetitive with the above, but still slightly different
 
     DebugLog::Log(LogType::Info, TEXT("Attack With Sword"));
     RayCastHit Hit;
     float AttackOffset = 100.0f;
     float HitSize = 80.0f;
     Vector3 Position = GetActor()->GetPosition() + GetActor()->GetDirection() * AttackOffset;
-    if (Physics::SphereCast(Position, HitSize, GetActor()->GetDirection(), Hit, SwordDistance, RayLayers)) //Bitwise Operation?
+    if (Physics::SphereCast(Position, HitSize, GetActor()->GetDirection(), Hit, SwordDistance, RayLayers))
     {
         if (Hit.Collider)
         {
@@ -295,6 +276,7 @@ void PlayerCharacter::PlayerAnimations()
     float n = Speed / CharacterMoveSpeed;
     AnimSpeedParameter->Value = n;
     AnimFallingParameter->Value = !m_CharacterController->IsGrounded();
+    //This is a simple implementation to get things working
 }
 
 

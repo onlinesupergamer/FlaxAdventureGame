@@ -28,3 +28,16 @@ DECLARE_SCRIPTING_TYPE_NO_SPAWN(IInterface);
 	API_FUNCTION() virtual void Damage(float Damage) = 0;
 
 };
+
+
+API_INTERFACE() 
+
+class IInteract
+{
+DECLARE_SCRIPTING_TYPE_NO_SPAWN(IInteract);
+
+	API_FUNCTION() virtual void Interact() = 0;
+
+
+
+};
